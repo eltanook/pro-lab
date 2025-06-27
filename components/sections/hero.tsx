@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Play, CheckCircle } from "lucide-react"
+import { ArrowRight, Play, CheckCircle, ChevronDown } from "lucide-react"
 
 export default function Hero() {
   return (
@@ -25,7 +25,7 @@ export default function Hero() {
             e.currentTarget.volume = 0
           }}
         >
-          <source src="/placeholder-video.mp4" type="video/mp4" />
+          <source src="/hero.mp4" type="video/mp4" />
         </video>
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60 dark:bg-black/70"></div>
@@ -88,6 +88,55 @@ export default function Hero() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Scroll Down Arrow */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+        <button
+          onClick={() => {
+            // Buscar la siguiente sección después del hero
+            const heroSection = document.querySelector('section[class*="min-h-screen"]');
+            const nextSection = heroSection?.nextElementSibling as HTMLElement;
+            
+            if (nextSection) {
+              nextSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            } else {
+              // Fallback: buscar cualquier sección que no sea hero
+              const sections = document.querySelectorAll('section');
+              const nonHeroSection = Array.from(sections).find(section => 
+                !section.className.includes('min-h-screen') && 
+                !section.className.includes('hero')
+              ) as HTMLElement;
+              
+              if (nonHeroSection) {
+                nonHeroSection.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            }
+          }}
+          className="group flex flex-col items-center space-y-2 text-white/80 hover:text-white transition-colors duration-300 cursor-pointer"
+          aria-label="Scroll hacia abajo"
+        >
+          <span className="text-sm font-medium opacity-75 group-hover:opacity-100 transition-opacity">
+            Descubre más
+          </span>
+          <div className="relative">
+            <ChevronDown 
+              className="w-8 h-8 animate-bounce" 
+              strokeWidth={1.5}
+            />
+            <ChevronDown 
+              className="w-8 h-8 absolute top-0 left-0 animate-bounce opacity-50" 
+              strokeWidth={1.5}
+              style={{ animationDelay: '0.2s' }}
+            />
+          </div>
+        </button>
       </div>
     </section>
   )
