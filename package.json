@@ -1,9 +1,7 @@
 {
-  "name": "prolab-educativa",
-  "version": "1.0.0",
+  "name": "my-v0-project",
+  "version": "0.1.0",
   "private": true,
-  "description": "Plataforma de formación laboral con certificación nacional e internacional",
-  "homepage": "https://prolab-educativa.netlify.app",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
