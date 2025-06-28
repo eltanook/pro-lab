@@ -38,7 +38,7 @@ export default function Hero() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="text-center lg:text-left space-y-8">
+          <div className="text-center lg:text-left space-y-6 lg:space-y-8">
             {/* Badge de estado más sobrio */}
             <div className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
               <div className="w-2 h-2 bg-prolab-violet rounded-full animate-pulse"></div>
@@ -46,11 +46,11 @@ export default function Hero() {
             </div>
 
             {/* Título principal más profesional */}
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-tight">
+            <div className="space-y-3 lg:space-y-4">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-tight">
                 <span className="block text-white">Pro-Lab Educativa</span>
               </h1>
-              <p className="text-xl sm:text-2xl lg:text-3xl text-gray-200 font-heading font-medium leading-relaxed">
+              <p className="text-lg sm:text-xl lg:text-3xl text-gray-200 font-heading font-medium leading-relaxed">
                 Formación Laboral con{" "}
                 <span className="text-prolab-violet font-bold">Certificación Nacional</span>
               </p>
@@ -59,43 +59,43 @@ export default function Hero() {
             {/* Características destacadas con estilo más serio */}
             <div className="space-y-3">
               <div className="flex items-center justify-center lg:justify-start space-x-3">
-                <CheckCircle className="w-5 h-5 text-prolab-violet" />
-                <span className="text-gray-200 font-body">Certificaciones avaladas nacional e internacionalmente</span>
+                <CheckCircle className="w-4 h-4 lg:w-5 lg:h-5 text-prolab-violet flex-shrink-0" />
+                <span className="text-gray-200 font-body text-sm lg:text-base">Certificaciones avaladas nacional e internacionalmente</span>
               </div>
               <div className="flex items-center justify-center lg:justify-start space-x-3">
-                <CheckCircle className="w-5 h-5 text-prolab-violet" />
-                <span className="text-gray-200 font-body">Modalidad online con clases en vivo</span>
+                <CheckCircle className="w-4 h-4 lg:w-5 lg:h-5 text-prolab-violet flex-shrink-0" />
+                <span className="text-gray-200 font-body text-sm lg:text-base">Modalidad online con clases en vivo</span>
               </div>
               <div className="flex items-center justify-center lg:justify-start space-x-3">
-                <CheckCircle className="w-5 h-5 text-prolab-violet" />
-                <span className="text-gray-200 font-body">Más de 95% de inserción laboral</span>
+                <CheckCircle className="w-4 h-4 lg:w-5 lg:h-5 text-prolab-violet flex-shrink-0" />
+                <span className="text-gray-200 font-body text-sm lg:text-base">Más de 95% de inserción laboral</span>
               </div>
             </div>
 
             {/* Botones más profesionales y consistentes */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+            <div className="flex flex-col gap-3 justify-center lg:justify-start pt-2">
               <Button
                 size="lg"
-                className="bg-prolab-violet hover:bg-prolab-violet/80 text-white border-0 group w-full sm:w-auto font-body font-semibold text-lg px-8 py-4"
+                className="bg-prolab-violet hover:bg-prolab-violet/80 text-white border-0 group w-full font-body font-semibold text-base lg:text-lg px-6 lg:px-8 py-3 lg:py-4"
                 onClick={() => (window.location.href = "/cursos")}
               >
                 Ver Cursos
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-prolab-violet w-full sm:w-auto font-body font-semibold text-lg px-8 py-4"
+                className="bg-transparent border-white text-white hover:bg-white hover:text-prolab-violet w-full font-body font-semibold text-base lg:text-lg px-6 lg:px-8 py-3 lg:py-4"
                 onClick={() => (window.location.href = "/contacto")}
               >
-                <Play className="w-4 h-4 mr-2" />
+                <Play className="w-3 h-3 lg:w-4 lg:h-4 mr-2" />
                 Conocer Más
               </Button>
             </div>
           </div>
 
-          {/* Imagen/Gráfico del lado derecho más serio */}
-          <div className="relative">
+          {/* Imagen/Gráfico del lado derecho más serio - Solo en desktop */}
+          <div className="relative hidden lg:block">
             <div className="relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
               <img
                 src="/3.jpg"
