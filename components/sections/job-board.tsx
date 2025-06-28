@@ -57,7 +57,7 @@ export default function JobBoard() {
                   <TrendingUp className="w-6 h-6 text-prolab-violet" />
                 </div>
                 <div className="text-2xl font-bold text-slate-800 dark:text-white">95%</div>
-                <div className="text-sm text-gray-600 dark:text-gray-300">Inserción laboral</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Inserción laboral</div>
               </div>
               
               <div className="text-center">
@@ -65,7 +65,7 @@ export default function JobBoard() {
                   <Users className="w-6 h-6 text-prolab-violet" />
                 </div>
                 <div className="text-2xl font-bold text-slate-800 dark:text-white">200+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-300">Empresas aliadas</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Empresas aliadas</div>
               </div>
               
               <div className="text-center">
@@ -73,7 +73,7 @@ export default function JobBoard() {
                   <Briefcase className="w-6 h-6 text-prolab-violet" />
                 </div>
                 <div className="text-2xl font-bold text-slate-800 dark:text-white">500+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-300">Ofertas activas</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Ofertas activas</div>
               </div>
             </div>
 

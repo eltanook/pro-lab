@@ -25,7 +25,7 @@ export default function Hero() {
         >
           <source src="/hero.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-prolab-black/20 dark:bg-prolab-black/70"></div>
+        <div className="absolute inset-0 bg-prolab-black/0 dark:bg-prolab-black/10"></div>
       </div>
       
       {/* Máscara para ocultar el video después del hero */}
