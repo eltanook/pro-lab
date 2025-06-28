@@ -1,70 +1,95 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Briefcase, TrendingUp, Users } from "lucide-react"
+import { TrendingUp, Users, Briefcase } from "lucide-react"
 
 export default function JobBoard() {
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
+    <section className="py-16 sm:py-20 bg-white relative overflow-hidden z-10">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Imagen de fondo */}
           <div className="relative">
-            <img
-              src="/4.jpg"
-              alt="Bolsa de trabajo"
-              className="rounded-2xl w-full border border-gray-200 dark:border-gray-700 object-cover"
-              style={{ maxHeight: '420px', minHeight: '420px', height: '420px' }}
-            />
-            <div className="absolute -top-6 -right-6 bg-[#009c48] text-white p-4 rounded-xl border border-[#009c48]">
-              <Briefcase className="w-8 h-8 mb-2" />
-              <div className="text-lg font-bold">500+</div>
-              <div className="text-xs">ofertas laborales</div>
+            <div className="relative rounded-2xl overflow-hidden">
+              <img
+                src="/5.jpg"
+                alt="Profesional trabajando"
+                className="w-full h-80 lg:h-96 object-cover"
+              />
+              {/* Badge flotante */}
+              <div className="absolute top-6 left-6 bg-prolab-violet text-white px-4 py-3 rounded-xl">
+                <div className="flex items-center space-x-2">
+                  <Briefcase className="w-5 h-5" />
+                  <div>
+                    <div className="font-bold text-lg">500+</div>
+                    <div className="text-sm">ofertas laborales</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <div className="inline-block bg-[#009c48]/10 text-[#009c48] px-4 py-2 rounded-full text-sm font-medium">
+          {/* Contenido de la derecha */}
+          <div className="space-y-6">
+            {/* Badge superior */}
+            <div className="inline-block">
+              <span className="bg-prolab-violet/10 text-prolab-violet px-3 py-1 rounded-full text-sm font-medium">
                 Bolsa de Trabajo
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#023a5d] dark:text-white leading-tight">
-                Tu próximo trabajo
-                <span className="text-[#009c48]"> te está esperando</span>
-              </h2>
-
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Accedé a nuestra bolsa de trabajo exclusiva con ofertas laborales de empresas aliadas que buscan
-                profesionales con nuestras certificaciones.
-              </p>
+              </span>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 sm:gap-4">
-              <div className="text-center p-2 sm:p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700">
-                <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-[#009c48] mb-2" />
-                <div className="text-lg sm:text-xl font-bold text-[#023a5d] dark:text-white">95%</div>
-                <div className="text-xs sm:text-xs text-gray-600 dark:text-gray-400">Inserción laboral</div>
+            {/* Título */}
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 leading-tight">
+              Tu Próximo Trabajo{" "}
+              <span className="text-prolab-violet">Te Está Esperando</span>
+            </h2>
+
+            {/* Descripción */}
+            <p className="text-gray-600 text-lg leading-relaxed">
+              Accedé a nuestra bolsa de trabajo exclusiva con ofertas laborales de empresas 
+              aliadas que buscan profesionales con nuestras certificaciones.
+            </p>
+
+            {/* Estadísticas */}
+            <div className="grid grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-prolab-violet/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <TrendingUp className="w-6 h-6 text-prolab-violet" />
+                </div>
+                <div className="text-2xl font-bold text-slate-800">95%</div>
+                <div className="text-sm text-gray-600">Inserción laboral</div>
               </div>
-              <div className="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700">
-                <Users className="w-8 h-8 mx-auto text-[#009c48] mb-2" />
-                <div className="text-xl font-bold text-[#023a5d] dark:text-white">200+</div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">Empresas aliadas</div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-prolab-violet/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <Users className="w-6 h-6 text-prolab-violet" />
+                </div>
+                <div className="text-2xl font-bold text-slate-800">200+</div>
+                <div className="text-sm text-gray-600">Empresas aliadas</div>
               </div>
-              <div className="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700">
-                <Briefcase className="w-8 h-8 mx-auto text-[#009c48] mb-2" />
-                <div className="text-xl font-bold text-[#023a5d] dark:text-white">500+</div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">Ofertas activas</div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-prolab-violet/10 rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <Briefcase className="w-6 h-6 text-prolab-violet" />
+                </div>
+                <div className="text-2xl font-bold text-slate-800">500+</div>
+                <div className="text-sm text-gray-600">Ofertas activas</div>
               </div>
             </div>
 
-            <Button
-              size="lg"
-              className="bg-[#009c48] hover:bg-[#007a38] text-white"
-              onClick={() => window.open("https://bolsadetrabajo.prolabeducativa.com", "_blank")}
-            >
-              Acceder a Bolsa de Trabajo
-              <ExternalLink className="w-4 h-4 ml-2" />
-            </Button>
+            {/* Botón de acción */}
+            <div className="pt-4">
+              <Button
+                size="lg"
+                className="bg-prolab-violet hover:bg-prolab-violet/80 text-white px-8 py-3 text-lg font-semibold"
+                onClick={() => (window.location.href = "/contacto")}
+              >
+                Acceder a Bolsa de Trabajo
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

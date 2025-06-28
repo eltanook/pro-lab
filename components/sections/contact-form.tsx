@@ -26,7 +26,7 @@ export default function ContactForm() {
   return (
     <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700">
       <div className="mb-8">
-        <h2 className="text-xl sm:text-2xl font-bold text-[#023a5d] dark:text-white mb-2">¿Tenés Alguna Consulta?</h2>
+                  <h2 className="text-xl sm:text-2xl font-bold text-prolab-black dark:text-white mb-2 font-heading">¿Tenés Alguna Consulta?</h2>
         <p className="text-gray-600 dark:text-gray-300">
           Completá el formulario y nos pondremos en contacto con vos a la brevedad.
         </p>
@@ -112,7 +112,7 @@ export default function ContactForm() {
         <Button
           type="submit"
           size="lg"
-          className="w-full bg-[#023a5d] dark:bg-[#011d2e] hover:bg-[#034a70] dark:hover:bg-[#023a5d] text-white py-3 sm:py-4"
+                      className="w-full bg-prolab-violet dark:bg-prolab-black hover:bg-prolab-violet/80 dark:hover:bg-prolab-violet text-white py-3 sm:py-4 font-body font-semibold"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Enviando..." : "Enviar Consulta"}

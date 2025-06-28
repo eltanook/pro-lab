@@ -2,50 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+
+    /* Pro-Lab Custom Colors */
+    --prolab-violet: 238 73% 66%;
+    --prolab-cyan: 186 100% 66%;
+    --prolab-pink: 323 100% 66%;
+    --prolab-black: 0 0% 0%;
+    --prolab-white: 0 0% 100%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
@@ -53,115 +72,125 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    /* Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Improve scrolling performance on mobile */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
   body {
     @apply bg-background text-foreground;
+    /* Prevent content jumping */
+    scrollbar-gutter: stable;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* Improve focus visibility for keyboard navigation */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+  
+  /* Better touch targets for mobile */
+  button, a, input, textarea, select {
+    touch-action: manipulation;
+  }
+  
+  /* Improve performance for animations */
+  *, *::before, *::after {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 }
 
-/* Custom animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Gradients */
+.gradient-primary {
+  background: linear-gradient(135deg, #5867FF 0%, #4CF3FF 100%);
 }
 
-@keyframes slideInFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.gradient-secondary {
+  background: linear-gradient(135deg, #FF4DC3 0%, #5867FF 100%);
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+.gradient-dark {
+  background: linear-gradient(135deg, #000000 0%, #5867FF 100%);
 }
 
-.animate-slide-in-right {
-  animation: slideInFromRight 0.6s ease-out;
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
 }
 
-/* Custom gradient backgrounds */
-.gradient-bg-primary {
-  background: linear-gradient(135deg, #023a5d 0%, #034a70 100%);
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
 }
 
-.gradient-bg-secondary {
-  background: linear-gradient(135deg, #009c48 0%, #007a38 100%);
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out;
 }
 
-/* Dark mode gradients */
-.dark .gradient-bg-primary {
-  background: linear-gradient(135deg, #011d2e 0%, #023a5d 100%);
-}
-
-/* Remove default shadows and use subtle borders */
-.card-subtle {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  transition: border-color 0.3s ease;
-}
-
-.dark .card-subtle {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.card-subtle:hover {
-  border-color: rgba(0, 156, 72, 0.3);
-}
-
-/* Hover effects without shadows */
+/* Hover effects */
 .hover-lift {
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .hover-lift:hover {
-  transform: translateY(-2px);
-  border-color: rgba(0, 156, 72, 0.2);
+  transform: translateY(-5px);
 }
 
-/* Custom Webkit Scrollbar */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
-  border-radius: 6px;
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #023a5d;
-  border-radius: 6px;
-  border: 2px solid hsl(var(--background));
+  background: #5867FF;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #034a70;
+  background: #4a5cef;
 }
 
-/* Dark mode scrollbar */
-.dark ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+/* Firefox scrollbar support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #5867FF #ffffff;
 }
 
-.dark ::-webkit-scrollbar-thumb {
-  background: #023a5d;
-  border: 2px solid hsl(var(--background));
+/* Typography */
+.font-display {
+  font-family: 'Manrope', 'Nunito', 'Rubik', sans-serif;
 }
 
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #034a70;
+.font-heading {
+  font-family: 'Manrope', 'Nunito', 'Rubik', sans-serif;
+}
+
+.font-body {
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+/* Custom utilities */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

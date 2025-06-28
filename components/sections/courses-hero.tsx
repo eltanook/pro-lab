@@ -3,15 +3,16 @@ import { GraduationCap, Users, Award } from "lucide-react"
 export default function CoursesHero() {
   return (
     <section className="pt-32 pb-20 relative overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Image with fixed attachment */}
+      <div className="fixed inset-0 z-0">
         <img
           src="/7.jpg"
           alt="Cursos background"
           className="w-full h-full object-cover"
+          style={{ objectPosition: 'center' }}
         />
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/75 dark:bg-black/80"></div>
+        {/* Simplified Dark Overlay */}
+        <div className="absolute inset-0 bg-prolab-black/60"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -19,7 +20,7 @@ export default function CoursesHero() {
           <div className="space-y-6">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Nuestra Oferta
-              <span className="text-[#009c48]"> Académica</span>
+              <span className="text-prolab-violet"> Académica</span>
             </h1>
 
             <p className="text-xl opacity-90 max-w-2xl mx-auto">

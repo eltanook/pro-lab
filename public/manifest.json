@@ -1,0 +1,35 @@
+{
+  "name": "Pro-Lab Educativa",
+  "short_name": "Pro-Lab",
+  "description": "Centro de formación especializado en capacitaciones prácticas con certificación nacional e internacional",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#5867FF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo1.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "training", "professional"],
+  "lang": "es",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "/3.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ]
+} 

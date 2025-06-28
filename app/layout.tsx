@@ -1,18 +1,82 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Manrope, Nunito, Rubik, Poppins } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/layout/header"
 import Footer from "@/components/layout/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 
-const inter = Inter({ subsets: ["latin"] })
+// Configuración de fuentes
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-inter",
+  display: "swap"
+})
+
+const manrope = Manrope({ 
+  subsets: ["latin"], 
+  variable: "--font-manrope",
+  display: "swap"
+})
+
+const nunito = Nunito({ 
+  subsets: ["latin"], 
+  variable: "--font-nunito",
+  display: "swap"
+})
+
+const rubik = Rubik({ 
+  subsets: ["latin"], 
+  variable: "--font-rubik",
+  display: "swap"
+})
+
+const poppins = Poppins({ 
+  subsets: ["latin"], 
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap"
+})
 
 export const metadata: Metadata = {
   title: "Pro-Lab Educativa - Formación Laboral con Certificación Nacional e Internacional",
-  description:
-    "Centro de formación especializado en capacitaciones prácticas con certificación nacional e internacional. Cursos de Criminalística, Marketing Digital, Enfermería y más.",
-    generator: 'v0.dev'
+  description: "Centro de formación especializado en capacitaciones prácticas con certificación nacional e internacional. Cursos de Criminalística, Marketing Digital, Enfermería y más.",
+  keywords: "formación laboral, certificación nacional, certificación internacional, cursos online, criminalística, marketing digital, enfermería, capacitación profesional, educación a distancia, Argentina",
+  authors: [{ name: "Pro-Lab Educativa" }],
+  creator: "Nexium Solutions",
+  publisher: "Pro-Lab Educativa",
+  robots: "index, follow",
+  viewport: "width=device-width, initial-scale=1",
+  icons: {
+    icon: '/logo1.png',
+    shortcut: '/logo1.png',
+    apple: '/logo1.png',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'es_AR',
+    url: 'https://prolab-educativa.com',
+    siteName: 'Pro-Lab Educativa',
+    title: 'Pro-Lab Educativa - Formación Laboral con Certificación Nacional e Internacional',
+    description: 'Centro de formación especializado en capacitaciones prácticas con certificación nacional e internacional. Cursos de Criminalística, Marketing Digital, Enfermería y más.',
+    images: [
+      {
+        url: '/logo2.png',
+        width: 1200,
+        height: 630,
+        alt: 'Pro-Lab Educativa - Centro de Formación Laboral',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pro-Lab Educativa - Formación Laboral con Certificación',
+    description: 'Centro de formación especializado en capacitaciones prácticas con certificación nacional e internacional.',
+    images: ['/logo2.png'],
+  },
+  alternates: {
+    canonical: 'https://prolab-educativa.com',
+  },
 }
 
 export default function RootLayout({
@@ -22,7 +86,45 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={inter.className}>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="theme-color" content="#5867FF" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="canonical" href="https://prolab-educativa.com" />
+        <link rel="manifest" href="/manifest.json" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "EducationalOrganization",
+              "name": "Pro-Lab Educativa",
+              "description": "Centro de formación especializado en capacitaciones prácticas con certificación nacional e internacional",
+              "url": "https://prolab-educativa.com",
+              "logo": "https://prolab-educativa.com/logo2.png",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+54-9-11-2345-6789",
+                "contactType": "customer service",
+                "email": "info@prolab-educativa.com"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "AR",
+                "addressLocality": "Buenos Aires"
+              },
+              "sameAs": [
+                "https://instagram.com/prolab-educativa",
+                "https://facebook.com/prolab-educativa",
+                "https://youtube.com/prolab-educativa"
+              ]
+            })
+          }}
+        />
+      </head>
+      <body className={`${inter.variable} ${manrope.variable} ${nunito.variable} ${rubik.variable} ${poppins.variable} font-body antialiased`}>
         <ThemeProvider defaultTheme="light" storageKey="prolab-ui-theme">
           <Header />
           <main>{children}</main>

@@ -1,6 +1,8 @@
+"use client"
+
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, Award, Briefcase, FileText } from "lucide-react"
+import { CheckCircle, Award, Briefcase, FileText, Mail, Globe, Phone, Users, BookOpen, Target, Package } from "lucide-react"
 import type { Course } from "@/lib/courses-data"
 
 interface CourseInfoProps {
@@ -9,20 +11,20 @@ interface CourseInfoProps {
 
 export default function CourseInfo({ course }: CourseInfoProps) {
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
+    <section className="py-20 bg-white dark:bg-gray-900 relative z-10">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Requirements */}
           <Card className="p-6 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
             <div className="flex items-center space-x-3 mb-4">
-              <FileText className="w-6 h-6 text-[#009c48]" />
-              <h3 className="text-base sm:text-lg font-semibold text-[#023a5d] dark:text-white">Requisitos</h3>
+              <FileText className="w-6 h-6 text-prolab-violet" />
+              <h3 className="text-base sm:text-lg font-semibold text-prolab-black dark:text-white font-heading">Requisitos</h3>
             </div>
             <ul className="space-y-3">
               {course.requirements.map((requirement, index) => (
                 <li key={index} className="flex items-start space-x-2">
-                  <CheckCircle className="w-4 h-4 text-[#009c48] mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-600 dark:text-gray-300 text-sm">{requirement}</span>
+                  <CheckCircle className="w-4 h-4 text-prolab-violet mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-600 dark:text-gray-300 text-sm font-body">{requirement}</span>
                 </li>
               ))}
             </ul>
@@ -31,14 +33,14 @@ export default function CourseInfo({ course }: CourseInfoProps) {
           {/* Benefits */}
           <Card className="p-6 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
             <div className="flex items-center space-x-3 mb-4">
-              <Award className="w-6 h-6 text-[#009c48]" />
-              <h3 className="text-base sm:text-lg font-semibold text-[#023a5d] dark:text-white">Beneficios</h3>
+              <Award className="w-6 h-6 text-prolab-violet" />
+              <h3 className="text-base sm:text-lg font-semibold text-prolab-black dark:text-white font-heading">Beneficios</h3>
             </div>
             <ul className="space-y-3">
               {course.benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start space-x-2">
-                  <CheckCircle className="w-4 h-4 text-[#009c48] mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-600 dark:text-gray-300 text-sm">{benefit}</span>
+                  <CheckCircle className="w-4 h-4 text-prolab-violet mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-600 dark:text-gray-300 text-sm font-body">{benefit}</span>
                 </li>
               ))}
             </ul>
@@ -47,35 +49,141 @@ export default function CourseInfo({ course }: CourseInfoProps) {
           {/* Job Opportunities */}
           <Card className="p-6 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
             <div className="flex items-center space-x-3 mb-4">
-              <Briefcase className="w-6 h-6 text-[#009c48]" />
-              <h3 className="text-base sm:text-lg font-semibold text-[#023a5d] dark:text-white">Salida Laboral</h3>
+              <Briefcase className="w-6 h-6 text-prolab-violet" />
+              <h3 className="text-base sm:text-lg font-semibold text-prolab-black dark:text-white font-heading">Salida Laboral</h3>
             </div>
             <ul className="space-y-3">
               {course.jobOpportunities.map((job, index) => (
                 <li key={index} className="flex items-start space-x-2">
-                  <CheckCircle className="w-4 h-4 text-[#009c48] mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-600 dark:text-gray-300 text-sm">{job}</span>
+                  <CheckCircle className="w-4 h-4 text-prolab-violet mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-600 dark:text-gray-300 text-sm font-body">{job}</span>
                 </li>
               ))}
             </ul>
           </Card>
         </div>
 
-        {/* Certification */}
-        <div className="mt-12 text-center">
-          <Card className="p-6 sm:p-8 bg-gradient-to-r from-[#023a5d] to-[#034a70] dark:from-gray-800 dark:to-gray-900 text-white border-0 max-w-4xl mx-auto">
-            <div className="space-y-3 sm:space-y-4">
-              <Award className="w-10 h-10 sm:w-12 sm:h-12 text-[#009c48] mx-auto" />
-              <h3 className="text-xl sm:text-2xl font-bold">Certificación Oficial</h3>
-              <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
-                {course.certification}
-              </p>
-              <Button size="lg" className="bg-[#009c48] hover:bg-[#007a38] text-white mt-4 sm:mt-6 w-full sm:w-auto">
-                Inscribirme Ahora
-              </Button>
-            </div>
-          </Card>
+        {/* Additional Information Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-8">
+          {/* Target Audience */}
+          {course.targetAudience && (
+            <Card className="p-6 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+              <div className="flex items-center space-x-3 mb-4">
+                <Users className="w-6 h-6 text-prolab-violet" />
+                <h3 className="text-base sm:text-lg font-semibold text-prolab-black dark:text-white font-heading">Dirigido A</h3>
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 text-sm font-body">{course.targetAudience}</p>
+            </Card>
+          )}
+
+          {/* What Includes */}
+          {course.whatIncludes && course.whatIncludes.length > 0 && (
+            <Card className="p-6 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+              <div className="flex items-center space-x-3 mb-4">
+                <Package className="w-6 h-6 text-prolab-violet" />
+                <h3 className="text-base sm:text-lg font-semibold text-prolab-black dark:text-white font-heading">¿Qué Incluye?</h3>
+              </div>
+              <ul className="space-y-3">
+                {course.whatIncludes.map((item, index) => (
+                  <li key={index} className="flex items-start space-x-2">
+                    <CheckCircle className="w-4 h-4 text-prolab-violet mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-600 dark:text-gray-300 text-sm font-body">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          )}
         </div>
+
+        {/* Methodology */}
+        {course.methodology && (
+          <Card className="p-6 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 mt-8">
+            <div className="flex items-center space-x-3 mb-4">
+              <BookOpen className="w-6 h-6 text-prolab-violet" />
+              <h3 className="text-base sm:text-lg font-semibold text-prolab-black dark:text-white font-heading">Metodología</h3>
+            </div>
+            <p className="text-gray-600 dark:text-gray-300 text-sm font-body">{course.methodology}</p>
+          </Card>
+        )}
+
+        {/* Final Project */}
+        {course.finalProject && (
+          <Card className="p-6 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 mt-8">
+            <div className="flex items-center space-x-3 mb-4">
+              <Target className="w-6 h-6 text-prolab-violet" />
+              <h3 className="text-base sm:text-lg font-semibold text-prolab-black dark:text-white font-heading">Proyecto Final</h3>
+            </div>
+            <p className="text-gray-600 dark:text-gray-300 text-sm font-body">{course.finalProject}</p>
+          </Card>
+        )}
+
+        {/* Contact Information - Estructura Mejorada */}
+        <div className="bg-prolab-violet rounded-xl p-8 text-white mt-8">
+          {/* Header */}
+          <div className="flex items-center space-x-3 mb-8">
+            <Mail className="w-6 h-6 text-white" />
+            <h3 className="text-xl font-semibold text-white font-heading">Información De Contacto</h3>
+          </div>
+          
+          {/* Contact Methods - Grid Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            {/* Email */}
+            <div className="flex items-start space-x-4">
+              <div className="bg-white/10 p-3 rounded-lg">
+                <Mail className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex-1">
+                <p className="text-white/80 text-sm font-body mb-1">Email</p>
+                <a 
+                  href="mailto:info@prolab-educativa.com"
+                  className="text-white font-semibold hover:underline font-body text-lg"
+                >
+                  info@prolab-educativa.com
+                </a>
+              </div>
+            </div>
+
+            {/* Website */}
+            <div className="flex items-start space-x-4">
+              <div className="bg-white/10 p-3 rounded-lg">
+                <Globe className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex-1">
+                <p className="text-white/80 text-sm font-body mb-1">Website</p>
+                <a 
+                  href="https://prolab-educativa.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white font-semibold hover:underline font-body text-lg"
+                >
+                  prolab-educativa.com
+                </a>
+              </div>
+            </div>
+
+            {/* WhatsApp */}
+            <div className="flex items-start space-x-4">
+              <div className="bg-white/10 p-3 rounded-lg">
+                <Phone className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex-1">
+                <p className="text-white/80 text-sm font-body mb-1">WhatsApp</p>
+                <a 
+                  href="https://wa.me/5491123456789"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white font-semibold hover:underline font-body text-lg"
+                >
+                  +54 9 11 2345-6789
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
       </div>
     </section>
   )

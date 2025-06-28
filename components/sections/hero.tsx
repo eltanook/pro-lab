@@ -1,140 +1,127 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Play, CheckCircle, ChevronDown } from "lucide-react"
+import { CheckCircle, ArrowRight, Play, ChevronDown } from "lucide-react"
 
 export default function Hero() {
+  const scrollToNextSection = () => {
+    const aboutSection = document.getElementById('about-section')
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-screen flex items-center justify-center bg-prolab-black overflow-hidden">
+      {/* Video de fondo con attachment fixed */}
+      <div className="fixed inset-0 z-0">
         <video
           autoPlay
-          muted
           loop
+          muted
           playsInline
-          className="w-full h-full object-cover"
-          preload="none"
-          volume={0}
-          onLoadedData={(e) => {
-            e.currentTarget.muted = true
-            e.currentTarget.volume = 0
-          }}
-          onPlay={(e) => {
-            e.currentTarget.muted = true
-            e.currentTarget.volume = 0
-          }}
+          className="w-full h-full object-cover opacity-30"
+          style={{ objectPosition: 'center' }}
         >
           <source src="/hero.mp4" type="video/mp4" />
         </video>
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/60 dark:bg-black/70"></div>
+        <div className="absolute inset-0 bg-prolab-black/10"></div>
+      </div>
+      
+      {/* Máscara para ocultar el video después del hero */}
+      <div className="absolute inset-0 z-1 pointer-events-none">
+        <div className="h-full w-full bg-transparent"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl">
-          <div className="space-y-6 sm:space-y-8 text-white">
-            <div className="space-y-6">
-              <div className="inline-flex items-center space-x-2 bg-white/10 dark:bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                <div className="w-2 h-2 bg-[#009c48] rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium">Certificación Nacional e Internacional</span>
-              </div>
+      {/* Efecto de fondo simple y profesional */}
+      <div className="absolute top-20 right-20 w-72 h-72 bg-prolab-violet/10 rounded-full blur-3xl"></div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                Transforma tu Futuro con
-                <span className="block text-[#009c48]">Pro-Lab Educativa</span>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="text-center lg:text-left space-y-8">
+            {/* Badge de estado más sobrio */}
+            <div className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
+              <div className="w-2 h-2 bg-prolab-violet rounded-full animate-pulse"></div>
+              <span className="text-white text-sm font-body font-medium">Inscripciones Abiertas 2024</span>
+            </div>
+
+            {/* Título principal más profesional */}
+            <div className="space-y-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-tight">
+                <span className="block text-white">Pro-Lab Educativa</span>
               </h1>
-
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-200 leading-relaxed max-w-3xl">
-                Formación práctica y especializada para mujeres que buscan una salida laboral concreta. Aprende haciendo
-                con certificaciones reconocidas.
+              <p className="text-xl sm:text-2xl lg:text-3xl text-gray-200 font-heading font-medium leading-relaxed">
+                Formación Laboral con{" "}
+                <span className="text-prolab-violet font-bold">Certificación Nacional</span>
               </p>
             </div>
 
-            <div className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-2xl">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-5 h-5 text-[#009c48]" />
-                  <span className="text-sm">Clases en Vivo + Grabadas</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-5 h-5 text-[#009c48]" />
-                  <span className="text-sm">Profesores Expertos</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-5 h-5 text-[#009c48]" />
-                  <span className="text-sm">95% Inserción Laboral</span>
-                </div>
+            {/* Características destacadas con estilo más serio */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-center lg:justify-start space-x-3">
+                <CheckCircle className="w-5 h-5 text-prolab-violet" />
+                <span className="text-gray-200 font-body">Certificaciones avaladas nacional e internacionalmente</span>
               </div>
+              <div className="flex items-center justify-center lg:justify-start space-x-3">
+                <CheckCircle className="w-5 h-5 text-prolab-violet" />
+                <span className="text-gray-200 font-body">Modalidad online con clases en vivo</span>
+              </div>
+              <div className="flex items-center justify-center lg:justify-start space-x-3">
+                <CheckCircle className="w-5 h-5 text-prolab-violet" />
+                <span className="text-gray-200 font-body">Más de 95% de inserción laboral</span>
+              </div>
+            </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button
-                  size="lg"
-                  className="bg-[#009c48] hover:bg-[#007a38] text-white border-0 group w-full sm:w-auto"
-                >
-                  Ver Cursos Disponibles
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+            {/* Botones más profesionales y consistentes */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+              <Button
+                size="lg"
+                className="bg-prolab-violet hover:bg-prolab-violet/80 text-white border-0 group w-full sm:w-auto font-body font-semibold text-lg px-8 py-4"
+                onClick={() => (window.location.href = "/cursos")}
+              >
+                Ver Cursos
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-transparent border-white text-white hover:bg-white hover:text-prolab-violet w-full sm:w-auto font-body font-semibold text-lg px-8 py-4"
+                onClick={() => (window.location.href = "/contacto")}
+              >
+                <Play className="w-4 h-4 mr-2" />
+                Conocer Más
+              </Button>
+            </div>
+          </div>
 
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="bg-transparent border-white text-white hover:bg-white hover:text-[#023a5d] dark:hover:text-[#011d2e] w-full sm:w-auto"
-                >
-                  <Play className="w-4 h-4 mr-2" />
-                  Ver Video
-                </Button>
+          {/* Imagen/Gráfico del lado derecho más serio */}
+          <div className="relative">
+            <div className="relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
+              <img
+                src="/3.jpg"
+                alt="Estudiantes de Pro-Lab Educativa"
+                className="w-full rounded-2xl object-cover"
+                style={{ height: "400px" }}
+              />
+              <div className="absolute -bottom-6 -left-6 bg-prolab-violet text-white p-6 rounded-xl border border-white/10 backdrop-blur-sm">
+                <div className="text-2xl font-bold font-display text-white">1000+</div>
+                <div className="text-sm text-gray-200 font-body">Egresados Exitosos</div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Down Arrow */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+      {/* Botón de scroll hacia abajo - Reimplementado */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
         <button
-          onClick={() => {
-            // Buscar la siguiente sección después del hero
-            const heroSection = document.querySelector('section[class*="min-h-screen"]');
-            const nextSection = heroSection?.nextElementSibling as HTMLElement;
-            
-            if (nextSection) {
-              nextSection.scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-              });
-            } else {
-              // Fallback: buscar cualquier sección que no sea hero
-              const sections = document.querySelectorAll('section');
-              const nonHeroSection = Array.from(sections).find(section => 
-                !section.className.includes('min-h-screen') && 
-                !section.className.includes('hero')
-              ) as HTMLElement;
-              
-              if (nonHeroSection) {
-                nonHeroSection.scrollIntoView({ 
-                  behavior: 'smooth',
-                  block: 'start'
-                });
-              }
-            }
-          }}
-          className="group flex flex-col items-center space-y-2 text-white/80 hover:text-white transition-colors duration-300 cursor-pointer"
-          aria-label="Scroll hacia abajo"
+          onClick={scrollToNextSection}
+          className="group bg-gray-800/50 backdrop-blur-md hover:bg-gray-700/60 border border-gray-600/50 rounded-xl px-6 py-3 transition-all duration-300 hover:scale-105 shadow-lg"
+          aria-label="Descubre más contenido"
         >
-          <span className="text-sm font-medium opacity-75 group-hover:opacity-100 transition-opacity">
-            Descubre más
-          </span>
-          <div className="relative">
-            <ChevronDown 
-              className="w-8 h-8 animate-bounce" 
-              strokeWidth={1.5}
-            />
-            <ChevronDown 
-              className="w-8 h-8 absolute top-0 left-0 animate-bounce opacity-50" 
-              strokeWidth={1.5}
-              style={{ animationDelay: '0.2s' }}
-            />
+          <div className="flex items-center space-x-2">
+            <span className="text-white text-sm font-medium">Descubre más</span>
+            <ChevronDown className="w-4 h-4 text-white group-hover:translate-y-0.5 transition-transform duration-300" />
           </div>
         </button>
       </div>

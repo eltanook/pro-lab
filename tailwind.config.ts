@@ -60,7 +60,20 @@ const config: Config = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
+  			},
+  			'prolab': {
+  				'violet': '#5867FF',
+  				'cyan': '#4CF3FF',
+  				'pink': '#FF4DC3',
+  				'black': '#000000',
+  				'white': '#FFFFFF',
   			}
+  		},
+  		fontFamily: {
+  			'display': ['var(--font-manrope)', 'var(--font-nunito)', 'var(--font-rubik)', 'sans-serif'],
+  			'heading': ['var(--font-manrope)', 'sans-serif'],
+  			'body': ['var(--font-inter)', 'var(--font-poppins)', 'sans-serif'],
+  			'sans': ['var(--font-inter)', 'sans-serif'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

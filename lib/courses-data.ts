@@ -22,6 +22,10 @@ export interface Course {
   certification: string
   jobOpportunities: string[]
   relatedCourses: string[]
+  targetAudience?: string
+  whatIncludes?: string[]
+  methodology?: string
+  finalProject?: string
 }
 
 export const coursesData: Course[] = [

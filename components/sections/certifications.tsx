@@ -1,79 +1,104 @@
 "use client"
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Download, Eye } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Award, CheckCircle, Globe } from "lucide-react"
 
 const certifications = [
   "Cámara Argentina de Capacitación y Profesionalización",
-  "O.I.E.P. (Organización Internacional de Educación Profesional)",
+  "Organización Internacional de Educación Profesional (O.I.E.P.)",
   "Comisión Psicosocial Latinoamericana (CPL)",
 ]
 
 export default function Certifications() {
-  const [showPDF, setShowPDF] = useState(false)
-
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section className="py-16 sm:py-20 bg-white dark:bg-gray-800 relative overflow-hidden z-10">
+      {/* Efecto de fondo sutil y profesional */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-prolab-violet/3 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <div className="inline-block bg-[#023a5d]/10 dark:bg-gray-700/50 text-[#023a5d] dark:text-white px-4 py-2 rounded-full text-sm font-medium border border-[#023a5d]/20 dark:border-gray-600">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-4 sm:space-y-6">
+              <Badge variant="outline" className="bg-prolab-violet/5 text-prolab-violet border border-prolab-violet/10 font-body">
                 Certificaciones Oficiales
-              </div>
+              </Badge>
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#023a5d] dark:text-white leading-tight">
-                Tus Certificados Tienen
-                <span className="text-[#009c48]"> Validez Nacional e Internacional</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-prolab-black dark:text-white leading-tight font-display">
+                Certificaciones Con{" "}
+                <span className="text-prolab-black dark:text-gray-300"> Validez Nacional E Internacional</span>
               </h2>
 
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Todos nuestros programas están respaldados por organismos oficiales que garantizan el reconocimiento
-                profesional de tu formación tanto en Argentina como en el exterior.
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-body">
+                Nuestros cursos están avalados por los organismos más reconocidos del sector educativo y profesional,
+                garantizando la validez y reconocimiento de tu certificación en Argentina y el extranjero.
               </p>
             </div>
 
             <div className="space-y-4">
               {certifications.map((cert, index) => (
-                <div
-                  key={index}
-                  className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700"
-                >
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-[#009c48] rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm flex-shrink-0">
+                <div key={index} className="flex items-start space-x-3">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-prolab-violet rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm flex-shrink-0">
                     {index + 1}
                   </div>
-                  <h4 className="font-semibold text-[#023a5d] dark:text-white text-sm sm:text-base">{cert}</h4>
+                  <h4 className="font-semibold text-prolab-black dark:text-white text-sm sm:text-base font-body">{cert}</h4>
                 </div>
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button
-                onClick={() => setShowPDF(!showPDF)}
-                className="bg-[#023a5d] dark:bg-gray-700 hover:bg-[#034a70] dark:hover:bg-gray-600 text-white border-0 w-full sm:w-auto"
+                size="lg"
+                className="bg-prolab-violet hover:bg-prolab-violet/80 text-white w-full sm:w-auto font-body font-semibold"
+                onClick={() => (window.location.href = "/cursos")}
               >
-                <Eye className="w-4 h-4 mr-2" />
-                {showPDF ? "Ocultar" : "Ver"} Certificados
+                Ver Cursos Certificados
               </Button>
-
               <Button
+                size="lg"
                 variant="outline"
-                className="border-[#009c48] text-[#009c48] hover:bg-[#009c48] hover:text-white dark:border-[#009c48] dark:text-[#009c48] w-full sm:w-auto"
+                className="border-prolab-violet text-prolab-violet hover:bg-prolab-violet hover:text-white w-full sm:w-auto font-body font-semibold"
+                onClick={() => (window.location.href = "/contacto")}
               >
-                <Download className="w-4 h-4 mr-2" />
-                Descargar PDF
+                Consultar Validez
               </Button>
             </div>
           </div>
 
           <div className="relative">
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8">
-              <img
-                src="/placeholder.svg?height=600&width=450"
-                alt="Certificado Pro-Lab Educativa"
-                className="w-full rounded-lg border border-gray-100 dark:border-gray-600"
-              />
+            <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-prolab-violet/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Award className="w-8 h-8 text-prolab-violet" />
+                </div>
+                <h3 className="text-xl font-bold text-prolab-black dark:text-white mb-2 font-heading">
+                  Certificación Pro-Lab Educativa
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm font-body">
+                  Validez Nacional e Internacional
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-600">
+                  <CheckCircle className="w-5 h-5 text-prolab-violet" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300 font-body">Reconocimiento oficial</span>
+                </div>
+                <div className="flex items-center space-x-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-600">
+                  <Globe className="w-5 h-5 text-prolab-violet" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300 font-body">Validez internacional</span>
+                </div>
+                <div className="flex items-center space-x-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-600">
+                  <Award className="w-5 h-5 text-prolab-violet" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300 font-body">Certificado digital + físico</span>
+                </div>
+              </div>
+
+              <div className="mt-6 p-4 bg-prolab-violet/5 rounded-lg border border-prolab-violet/10">
+                <p className="text-center text-sm text-prolab-violet dark:text-white font-medium font-body">
+                  💎 Todos nuestros certificados incluyen código QR de verificación digital
+                </p>
+              </div>
             </div>
           </div>
         </div>

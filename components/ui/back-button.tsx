@@ -16,7 +16,7 @@ export default function BackButton() {
         onClick={handleGoBack}
         className="w-12 h-12 sm:w-14 sm:h-14 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-full flex items-center justify-center border border-gray-200 dark:border-gray-600 transition-all duration-300 hover:scale-110 group shadow-lg"
       >
-        <ArrowLeft className="w-6 h-6 sm:w-7 sm:h-7 text-[#023a5d] dark:text-white group-hover:scale-110 transition-transform" />
+        <ArrowLeft className="w-6 h-6 sm:w-7 sm:h-7 text-prolab-violet dark:text-white group-hover:scale-110 transition-transform" />
       </button>
     </div>
   )
