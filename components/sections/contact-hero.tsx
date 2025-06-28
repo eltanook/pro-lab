@@ -9,8 +9,8 @@ export default function ContactHero() {
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center' }}
         />
-        {/* Simplified Dark Overlay */}
-        <div className="absolute inset-0 bg-prolab-black/60"></div>
+        {/* Responsive Dark Overlay */}
+        <div className="absolute inset-0 bg-prolab-black/40 dark:bg-prolab-black/70"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
