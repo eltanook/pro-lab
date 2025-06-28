@@ -12,7 +12,7 @@ export default function JobBoard() {
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden">
               <img
-                src="/5.jpg"
+                src="/1.jpg"
                 alt="Profesional trabajando"
                 className="w-full h-80 lg:h-96 object-cover"
               />
