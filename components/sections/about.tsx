@@ -62,7 +62,7 @@ export default function About() {
           <div className="relative">
             <div className="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden">
               <img
-                src="/1.jpg"
+                src="/5.jpg"
                 alt="Pro-Lab Educativa - Biblioteca"
                 className="w-full h-80 sm:h-96 object-cover"
               />
