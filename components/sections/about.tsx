@@ -64,7 +64,7 @@ export default function About() {
               <img
                 src="/5.jpg"
                 alt="Pro-Lab Educativa - Biblioteca"
-                className="w-full h-80 sm:h-96 object-cover"
+                className="w-full h-96 sm:h-[26rem] object-cover"
               />
               {/* Overlay for better text contrast */}
               <div className="absolute inset-0 bg-prolab-black/20"></div>
