@@ -106,18 +106,21 @@ export default function RootLayout({
               "logo": "https://prolab-educativa.com/logo2.png",
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+54-9-11-2345-6789",
+                                  "telephone": "+54-342-503-0140",
                 "contactType": "customer service",
-                "email": "info@prolab-educativa.com"
+                "email": "info@prolabeducativa.com.ar"
               },
               "address": {
                 "@type": "PostalAddress",
-                "addressCountry": "AR",
-                "addressLocality": "Buenos Aires"
+                "streetAddress": "Av. Ejercito Argentino 2515, Primer Piso",
+                "addressLocality": "Santo Tomé",
+                "addressRegion": "Santa Fe",
+                "addressCountry": "AR"
               },
               "sameAs": [
-                "https://instagram.com/prolab-educativa",
-                "https://facebook.com/prolab-educativa",
+                "https://wa.me/5493425030140",
+                "https://www.instagram.com/prolab_educativa?igsh=MTduZmpmMG9jdzR6Zg==",
+                "https://www.facebook.com/profile.php?id=61576344784873",
                 "https://youtube.com/prolab-educativa"
               ]
             })

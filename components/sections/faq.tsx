@@ -25,11 +25,7 @@ const faqs = [
     answer:
       "Sí, tenemos una bolsa de trabajo exclusiva para egresados, networking con empresas del sector y orientación profesional para potenciar tu inserción laboral.",
   },
-  {
-    question: "¿Qué requisitos necesito para inscribirme?",
-    answer:
-      "Los requisitos varían según el curso, pero generalmente necesitas secundario completo, ser mayor de 18 años y tener acceso a una computadora con internet estable.",
-  },
+
   {
     question: "¿Puedo pagar en cuotas?",
     answer:
@@ -48,7 +44,7 @@ export default function FAQ() {
     <section className="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800 relative z-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 sm:mb-16">
-          <Badge variant="outline" className="mb-4 bg-white dark:bg-gray-700 text-prolab-violet border-prolab-violet font-body">
+          <Badge variant="outline" className="mb-4 bg-prolab-violet/5 text-prolab-violet border border-prolab-violet/10 font-body">
             Resolvemos tus dudas
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-prolab-black dark:text-white mb-4 font-display">Preguntas Frecuentes</h2>

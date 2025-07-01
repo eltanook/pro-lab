@@ -24,7 +24,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700">
+    <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 h-full">
       <div className="mb-8">
                   <h2 className="text-xl sm:text-2xl font-bold text-prolab-black dark:text-white mb-2 font-heading">¿Tenés Alguna Consulta?</h2>
         <p className="text-gray-600 dark:text-gray-300">
@@ -32,7 +32,7 @@ export default function ContactForm() {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6 h-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
           <div className="relative">
             <User className="absolute left-3 top-3 w-4 h-4 text-gray-400 dark:text-gray-500" />
@@ -105,7 +105,7 @@ export default function ContactForm() {
 
         <Textarea
           placeholder="Contanos sobre tu situación actual y qué te gustaría lograr con nuestros cursos"
-          rows={4}
+          rows={5}
           className="dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
         />
 

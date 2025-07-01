@@ -92,7 +92,7 @@ export default function Header() {
             <ThemeToggle isScrolled={isScrolled} />
             <Button
               className="bg-prolab-violet hover:bg-prolab-violet/80 text-white font-body font-semibold"
-              onClick={() => window.open("https://campus.prolabeducativa.com", "_blank")}
+              onClick={() => window.open("https://prolabaulavirtual.com/autogestion/", "_blank")}
             >
               Campus Virtual
             </Button>
@@ -154,7 +154,7 @@ export default function Header() {
               <Button
                 className="w-full mt-4 bg-prolab-violet hover:bg-prolab-violet/80 text-white py-3 text-base font-body font-semibold"
                 onClick={() => {
-                  window.open("https://campus.prolabeducativa.com", "_blank")
+                                      window.open("https://prolabaulavirtual.com/autogestion/", "_blank")
                   setIsOpen(false)
                 }}
               >

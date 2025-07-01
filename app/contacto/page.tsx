@@ -1,6 +1,7 @@
 import ContactHero from "@/components/sections/contact-hero"
 import ContactForm from "@/components/sections/contact-form"
 import ContactInfo from "@/components/sections/contact-info"
+import ContactBenefits from "@/components/sections/contact-benefits"
 import WhatsAppFloat from "@/components/ui/whatsapp-float"
 import type { Metadata } from "next"
 
@@ -41,18 +42,23 @@ export default function ContactoPage() {
             </div>
           </div>
 
+          {/* Benefits Section */}
+          <div className="mt-8 sm:mt-12">
+            <ContactBenefits />
+          </div>
+
           {/* Integrated Map Section */}
           <div className="mt-8 sm:mt-12">
             <div className="bg-white rounded-xl overflow-hidden border border-gray-200">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168903552!2d-58.38375908477!3d-34.60373098045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacb9f8ff113%3A0x22fd08da6711928d!2sAv.%20Corrientes%201234%2C%20C1043%20CABA!5e0!3m2!1ses!2sar!4v1234567890123"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3399.158!2d-60.764!3d-31.642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b5a9c7b8b0e0a1%3A0x123456789!2sAv.%20Ejercito%20Argentino%202515%2C%20Primer%20Piso%2C%20Santo%20Tom%C3%A9%2C%20Santa%20Fe%2C%20Argentina!5e0!3m2!1ses!2sar!4v1647875421234"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación Pro-Lab Educativa"
+                title="Ubicación Pro-Lab Educativa - Santo Tomé, Santa Fe"
                 className="sm:h-96 lg:h-[400px]"
               ></iframe>
             </div>

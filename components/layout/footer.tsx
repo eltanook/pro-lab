@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Instagram, Facebook, Youtube, Phone, Mail, MapPin } from "lucide-react"
+import { FaWhatsapp } from "react-icons/fa"
 import Image from "next/image"
 
 export default function Footer() {
@@ -25,7 +26,15 @@ export default function Footer() {
             </p>
             <div className="flex space-x-3">
               <a
-                href="https://instagram.com/prolab-educativa"
+                href="https://wa.me/5493425030140"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-white/80 p-1 sm:p-2 border border-white/20 hover:border-white/40 rounded-full transition-all"
+              >
+                <FaWhatsapp className="w-4 h-4 sm:w-5 sm:h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/prolab_educativa?igsh=MTduZmpmMG9jdzR6Zg=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-white/80 p-1 sm:p-2 border border-white/20 hover:border-white/40 rounded-full transition-all"
@@ -33,7 +42,7 @@ export default function Footer() {
                 <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
-                href="https://facebook.com/prolab-educativa"
+                href="https://www.facebook.com/profile.php?id=61576344784873"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-white/80 border border-white/20 hover:border-white/40 rounded-full transition-all"
@@ -106,7 +115,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://campus.prolabeducativa.com"
+                  href="https://prolabaulavirtual.com/autogestion/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-200 hover:text-white transition-colors font-body"
@@ -116,7 +125,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://prolabaulavirtual.com"
+                  href="https://prolabaulavirtual.com/autogestion/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-200 hover:text-white transition-colors font-body"
@@ -132,35 +141,26 @@ export default function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-white/80" />
-                <span className="text-gray-200 font-body">+54 9 11 1234-5678</span>
+                <span className="text-gray-200 font-body">+54 342 503-0140</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-white/80" />
-                <span className="text-gray-200 font-body">direccion@prolabeducativa.com</span>
+                <span className="text-gray-200 font-body">info@prolabeducativa.com.ar</span>
               </div>
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-white/80 mt-0.5" />
-                <span className="text-gray-200 leading-relaxed font-body">Buenos Aires, Argentina</span>
+                <span className="text-gray-200 leading-relaxed font-body">Av. Ejercito Argentino 2515, Primer Piso, Santo Tomé, Santa Fe</span>
               </div>
             </div>
 
-            <Button
-              size="sm" 
-              className="bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/30 w-full text-sm sm:text-base py-2 sm:py-3 font-body font-semibold"
-              onClick={() => {
-                const message = encodeURIComponent("¡Hola! Me interesa conocer más sobre los cursos de Pro-Lab Educativa.")
-                window.open(`https://wa.me/5491234567890?text=${message}`, "_blank")
-              }}
-            >
-              Consultá por WhatsApp
-            </Button>
+
           </div>
         </div>
 
         <div className="border-t border-white/20 dark:border-gray-700 mt-8 pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
             <p className="text-gray-200 text-xs sm:text-sm font-body">
-              © 2024 Pro-Lab Educativa. Todos los derechos reservados.
+              © 2025 Pro-Lab Educativa. Todos los derechos reservados.
             </p>
             <p className="text-gray-200 text-xs sm:text-sm font-body">
               Desarrollado por{" "}

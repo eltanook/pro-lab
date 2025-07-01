@@ -14,7 +14,7 @@ export default function CourseHero({ course }: CourseHeroProps) {
     const message = encodeURIComponent(
       `¡Hola! Me interesa conocer más sobre el curso "${course.title}" de Pro-Lab Educativa. ¿Podrían brindarme información sobre precios y modalidades de pago?`
     )
-    window.open(`https://wa.me/5491234567890?text=${message}`, "_blank")
+    window.open(`https://wa.me/5493425030140?text=${message}`, "_blank")
   }
 
   return (
@@ -83,7 +83,7 @@ export default function CourseHero({ course }: CourseHeroProps) {
                 size="lg" 
                 variant="outline"
                 className="bg-transparent border-white text-white hover:bg-white hover:text-prolab-violet w-full sm:w-auto font-body font-semibold"
-                onClick={() => window.open(`mailto:info@prolab-educativa.com?subject=Información sobre ${course.title}`, '_blank')}
+                onClick={() => window.open(`mailto:info@prolabeducativa.com.ar?subject=Información sobre ${course.title}`, '_blank')}
               >
                 <Play className="w-4 h-4 mr-2" />
                 Más Información

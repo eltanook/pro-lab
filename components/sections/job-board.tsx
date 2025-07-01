@@ -82,7 +82,7 @@ export default function JobBoard() {
               <Button
                 size="lg"
                 className="bg-prolab-violet hover:bg-prolab-violet/80 text-white px-8 py-3 text-lg font-semibold"
-                onClick={() => (window.location.href = "/contacto")}
+                onClick={() => window.open("https://empleos.camaraargentina.com.ar/", "_blank")}
               >
                 Acceder a Bolsa de Trabajo
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

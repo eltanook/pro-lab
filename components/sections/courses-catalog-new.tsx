@@ -28,7 +28,7 @@ const coursesData = {
     {
       title: "Diplomatura en Ciencias Criminalísticas",
       description: "Análisis forense, investigación penal, técnicas periciales",
-      duration: "6 meses",
+      duration: "8 meses",
       modality: "Online en vivo",
       category: "Área Jurídica y Social",
       icon: Gavel,
@@ -37,7 +37,7 @@ const coursesData = {
     {
       title: "Lengua de Señas Argentina (LSA)",
       description: "Inclusión laboral y comunicación accesible",
-      duration: "4 meses",
+      duration: "8 meses",
       modality: "Online en vivo",
       category: "Área Jurídica y Social",
       icon: HandHeart,
@@ -46,7 +46,7 @@ const coursesData = {
     {
       title: "Programa de Personal Trainer",
       description: "Entrenamiento funcional, planificación deportiva",
-      duration: "3 meses",
+      duration: "8 meses",
       modality: "Online en vivo",
       category: "Salud y Deporte",
       icon: Dumbbell,
@@ -55,7 +55,7 @@ const coursesData = {
     {
       title: "Técnicas de Enfermería con Orientación Geriátrica",
       description: "Cuidados especializados para adultos mayores",
-      duration: "5 meses",
+      duration: "8 meses",
       modality: "Online en vivo",
       category: "Salud y Deporte",
       icon: Stethoscope,
@@ -64,7 +64,7 @@ const coursesData = {
     {
       title: "Administración de Clínicas y Sanatorios",
       description: "Gestión eficiente de centros de salud",
-      duration: "4 meses",
+      duration: "8 meses",
       modality: "Online en vivo",
       category: "Administración y Empresas",
       icon: Building2,
@@ -73,7 +73,7 @@ const coursesData = {
     {
       title: "Secretariado Administrativo Contable",
       description: "Manejo de finanzas, facturación, gestión documental",
-      duration: "3 meses",
+      duration: "8 meses",
       modality: "Online en vivo",
       category: "Administración y Empresas",
       icon: Calculator,
@@ -82,7 +82,7 @@ const coursesData = {
     {
       title: "Secretariado en Recursos Humanos",
       description: "Reclutamiento, liquidación de sueldos, clima laboral",
-      duration: "3 meses",
+      duration: "8 meses",
       modality: "Online en vivo",
       category: "Administración y Empresas",
       icon: Users,
@@ -91,7 +91,7 @@ const coursesData = {
     {
       title: "Marketing Digital",
       description: "Redes sociales, publicidad online, SEO",
-      duration: "4 meses",
+      duration: "8 meses",
       modality: "Online en vivo",
       category: "Marketing y Tecnología",
       icon: TrendingUp,
@@ -100,7 +100,7 @@ const coursesData = {
     {
       title: "Emprendimientos Digitales",
       description: "Modelos de negocio online, e-commerce, monetización",
-      duration: "3 meses",
+      duration: "8 meses",
       modality: "Online en vivo",
       category: "Marketing y Tecnología",
       icon: Globe,

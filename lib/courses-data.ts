@@ -26,6 +26,12 @@ export interface Course {
   whatIncludes?: string[]
   methodology?: string
   finalProject?: string
+  contactInfo?: {
+    email?: string
+    website?: string
+    phone?: string
+    socialMedia?: string
+  }
 }
 
 export const coursesData: Course[] = [
@@ -34,7 +40,7 @@ export const coursesData: Course[] = [
     title: "Diplomatura en Ciencias Criminalísticas",
     category: "Área Jurídica y Social",
     description: "Análisis forense, investigación penal, técnicas periciales",
-    duration: "6 meses",
+    duration: "8 meses",
     modality: "Online en vivo",
     students: "150+ estudiantes",
     rating: 4.9,
@@ -77,6 +83,18 @@ export const coursesData: Course[] = [
         module: "Documentología",
         topics: ["Análisis de escrituras", "Falsificaciones", "Alteraciones documentales"],
       },
+      {
+        module: "Medicina Legal",
+        topics: ["Traumatología forense", "Tanatología", "Identificación de cadáveres", "Autopsia judicial"],
+      },
+      {
+        module: "Fotografía Forense",
+        topics: ["Técnicas de fotografía criminalística", "Iluminación forense", "Macro fotografía"],
+      },
+      {
+        module: "Derecho Procesal Penal",
+        topics: ["Procedimiento penal argentino", "Cadena de custodia", "Actuación pericial en juicio"],
+      },
     ],
     requirements: [
       "Secundario completo",
@@ -100,18 +118,22 @@ export const coursesData: Course[] = [
       "Instructor en academias policiales",
     ],
     relatedCourses: ["lsa", "marketing-digital", "personal-trainer"],
+    contactInfo: {
+      email: "direccion@prolabeducativa.com",
+      website: "prolabaulavirtual.com/autogestion"
+    }
   },
   {
     slug: "marketing-digital",
     title: "Marketing Digital",
     category: "Marketing y Tecnología",
     description: "Redes sociales, publicidad online, SEO",
-    duration: "4 meses",
+    duration: "8 meses",
     modality: "Online en vivo",
     students: "300+ estudiantes",
     rating: 4.8,
     price: "Consultar",
-    popular: true,
+    popular: false,
     icon: "TrendingUp",
     heroImage: "/materias/marketing.jpg",
     overview:
@@ -144,6 +166,18 @@ export const coursesData: Course[] = [
         module: "E-commerce y Conversión",
         topics: ["Tiendas online", "Email marketing", "Automatización", "Métricas de conversión"],
       },
+      {
+        module: "Analítica Web",
+        topics: ["Google Analytics 4", "Google Tag Manager", "Data Studio", "Interpretación de métricas"],
+      },
+      {
+        module: "Marketing de Contenidos",
+        topics: ["Estrategia de contenidos", "Copywriting", "Storytelling", "Calendarios editoriales"],
+      },
+      {
+        module: "Publicidad Avanzada",
+        topics: ["Retargeting", "Lookalike audiences", "Automatización de campañas", "A/B Testing"],
+      },
     ],
     requirements: [
       "Conocimientos básicos de computación",
@@ -167,13 +201,17 @@ export const coursesData: Course[] = [
       "Coordinadora de marketing",
     ],
     relatedCourses: ["emprendimientos-digitales", "secretariado-rrhh", "criminalistica"],
+    contactInfo: {
+      email: "direccion@prolabeducativa.com",
+      website: "prolabaulavirtual.com/autogestion"
+    }
   },
   {
     slug: "personal-trainer",
     title: "Programa de Personal Trainer",
     category: "Salud y Deporte",
     description: "Entrenamiento funcional, planificación deportiva",
-    duration: "3 meses",
+    duration: "8 meses",
     modality: "Online en vivo",
     students: "200+ estudiantes",
     rating: 4.9,
@@ -211,6 +249,18 @@ export const coursesData: Course[] = [
         module: "Coaching y Negocio",
         topics: ["Técnicas de motivación", "Comunicación efectiva", "Marketing personal", "Gestión de clientes"],
       },
+      {
+        module: "Patologías y Lesiones",
+        topics: ["Lesiones deportivas comunes", "Rehabilitación", "Ejercicio terapéutico", "Primeros auxilios"],
+      },
+      {
+        module: "Entrenamiento Especializado",
+        topics: ["Entrenamiento para tercera edad", "Ejercicio post-parto", "Entrenamiento adaptado"],
+      },
+      {
+        module: "Tecnología Fitness",
+        topics: ["Apps de entrenamiento", "Wearables", "Análisis de datos", "Entrenamiento virtual"],
+      },
     ],
     requirements: [
       "Interés genuino por el fitness",
@@ -234,13 +284,17 @@ export const coursesData: Course[] = [
       "Instructor de clases grupales",
     ],
     relatedCourses: ["enfermeria-geriatrica", "marketing-digital", "emprendimientos-digitales"],
+    contactInfo: {
+      email: "direccion@prolabeducativa.com",
+      socialMedia: "@prolab-educativa"
+    }
   },
   {
     slug: "enfermeria-geriatrica",
     title: "Técnicas de Enfermería con Orientación Geriátrica",
     category: "Salud y Deporte",
     description: "Cuidados especializados para adultos mayores",
-    duration: "5 meses",
+    duration: "8 meses",
     modality: "Online en vivo",
     students: "180+ estudiantes",
     rating: 4.8,
@@ -278,6 +332,18 @@ export const coursesData: Course[] = [
         module: "Aspectos Legales y Éticos",
         topics: ["Marco legal", "Derechos del paciente", "Ética profesional", "Documentación"],
       },
+      {
+        module: "Rehabilitación Geriátrica",
+        topics: ["Fisioterapia en adultos mayores", "Terapia ocupacional", "Estimulación cognitiva"],
+      },
+      {
+        module: "Psicología del Adulto Mayor",
+        topics: ["Cambios psicológicos", "Depresión geriátrica", "Terapia de reminiscencia"],
+      },
+      {
+        module: "Emergencias Geriátricas",
+        topics: ["Urgencias médicas", "Protocolo de caídas", "Manejo de crisis", "RCP en adultos mayores"],
+      },
     ],
     requirements: ["Secundario completo", "Vocación de servicio", "Estabilidad emocional", "Disponibilidad horaria"],
     benefits: [
@@ -302,7 +368,7 @@ export const coursesData: Course[] = [
     title: "Administración de Clínicas y Sanatorios",
     category: "Administración y Empresas",
     description: "Gestión eficiente de centros de salud",
-    duration: "4 meses",
+    duration: "8 meses",
     modality: "Online en vivo",
     students: "120+ estudiantes",
     rating: 4.7,
@@ -340,6 +406,18 @@ export const coursesData: Course[] = [
         module: "Marco Legal Sanitario",
         topics: ["Legislación sanitaria", "Habilitaciones", "Auditorías", "Responsabilidad civil"],
       },
+      {
+        module: "Tecnología Sanitaria",
+        topics: ["Sistemas de información hospitalaria", "Historia clínica electrónica", "Telemedicina"],
+      },
+      {
+        module: "Logística Hospitalaria",
+        topics: ["Gestión de inventarios", "Compras y proveedores", "Mantenimiento de equipos"],
+      },
+      {
+        module: "Emergencias y Contingencias",
+        topics: ["Planes de emergencia", "Gestión de crisis", "Protocolos de bioseguridad"],
+      },
     ],
     requirements: [
       "Secundario completo",
@@ -363,13 +441,18 @@ export const coursesData: Course[] = [
       "Consultor en gestión sanitaria",
     ],
     relatedCourses: ["secretariado-administrativo", "secretariado-rrhh", "enfermeria-geriatrica"],
+    contactInfo: {
+      phone: "3425030140",
+      email: "direccion@prolabeducativa.com",
+      website: "prolabaulavirtual.com"
+    }
   },
   {
     slug: "secretariado-administrativo",
     title: "Secretariado Administrativo Contable",
     category: "Administración y Empresas",
     description: "Manejo de finanzas, facturación, gestión documental",
-    duration: "3 meses",
+    duration: "8 meses",
     modality: "Online en vivo",
     students: "250+ estudiantes",
     rating: 4.6,
@@ -407,6 +490,18 @@ export const coursesData: Course[] = [
         module: "Atención al Cliente",
         topics: ["Comunicación efectiva", "Atención telefónica", "Resolución de conflictos"],
       },
+      {
+        module: "Legislación Laboral y Comercial",
+        topics: ["Ley de Contrato de Trabajo", "Legislación comercial", "Contratos", "Sociedades"],
+      },
+      {
+        module: "Administración Digital",
+        topics: ["Sistemas de gestión ERP", "Firma digital", "Facturación electrónica", "Teletrabajo"],
+      },
+      {
+        module: "Control de Gestión",
+        topics: ["Indicadores de gestión", "Tableros de control", "Análisis financiero básico"],
+      },
     ],
     requirements: [
       "Secundario completo",
@@ -430,13 +525,18 @@ export const coursesData: Course[] = [
       "Coordinadora administrativa",
     ],
     relatedCourses: ["secretariado-rrhh", "administracion-clinicas", "emprendimientos-digitales"],
+    contactInfo: {
+      phone: "3425030140",
+      email: "direccion@prolabeducativa.com",
+      website: "prolabaulavirtual.com"
+    }
   },
   {
     slug: "secretariado-rrhh",
     title: "Secretariado en Recursos Humanos",
     category: "Administración y Empresas",
     description: "Reclutamiento, liquidación de sueldos, clima laboral",
-    duration: "3 meses",
+    duration: "8 meses",
     modality: "Online en vivo",
     students: "180+ estudiantes",
     rating: 4.7,
@@ -474,6 +574,18 @@ export const coursesData: Course[] = [
         module: "Desarrollo y Capacitación",
         topics: ["Planes de carrera", "Evaluación de desempeño", "Capacitación", "Clima laboral"],
       },
+      {
+        module: "Relaciones Laborales",
+        topics: ["Negociación colectiva", "Sindicatos", "Conflictos laborales", "Mediación"],
+      },
+      {
+        module: "Psicología Organizacional",
+        topics: ["Motivación laboral", "Liderazgo", "Trabajo en equipo", "Comunicación interna"],
+      },
+      {
+        module: "RRHH Digital",
+        topics: ["Software de RRHH", "Reclutamiento digital", "Plataformas de capacitación online"],
+      },
     ],
     requirements: [
       "Secundario completo",
@@ -497,13 +609,18 @@ export const coursesData: Course[] = [
       "Consultora en RRHH",
     ],
     relatedCourses: ["secretariado-administrativo", "administracion-clinicas", "marketing-digital"],
+    contactInfo: {
+      phone: "3425030140",
+      email: "direccion@prolabeducativa.com",
+      website: "prolabaulavirtual.com/autogestion"
+    }
   },
   {
     slug: "emprendimientos-digitales",
     title: "Emprendimientos Digitales",
     category: "Marketing y Tecnología",
     description: "Modelos de negocio online, e-commerce, monetización",
-    duration: "3 meses",
+    duration: "8 meses",
     modality: "Online en vivo",
     students: "220+ estudiantes",
     rating: 4.8,
@@ -541,6 +658,18 @@ export const coursesData: Course[] = [
         module: "Gestión y Escalabilidad",
         topics: ["Automatización", "Métricas clave", "Financiamiento", "Expansión"],
       },
+      {
+        module: "Finanzas para Emprendedores",
+        topics: ["Análisis financiero", "Flujo de caja", "Inversión", "Valoración de startups"],
+      },
+      {
+        module: "Legalidad Digital",
+        topics: ["Aspectos legales del e-commerce", "Protección de datos", "Contratos digitales"],
+      },
+      {
+        module: "Innovación y Tecnología",
+        topics: ["Tendencias tecnológicas", "IA para emprendedores", "Blockchain", "IoT"],
+      },
     ],
     requirements: [
       "Espíritu emprendedor",
@@ -564,18 +693,22 @@ export const coursesData: Course[] = [
       "Desarrollador de productos digitales",
     ],
     relatedCourses: ["marketing-digital", "secretariado-administrativo", "personal-trainer"],
+    contactInfo: {
+      email: "direccion@prolabeducativa.com",
+      website: "prolabaulavirtual.com/autogestion"
+    }
   },
   {
     slug: "lsa",
     title: "Lengua de Señas Argentina (LSA)",
     category: "Área Jurídica y Social",
     description: "Inclusión laboral y comunicación accesible",
-    duration: "4 meses",
+    duration: "8 meses",
     modality: "Online en vivo",
     students: "160+ estudiantes",
     rating: 4.9,
     price: "Consultar",
-    popular: false,
+    popular: true,
     icon: "HandHeart",
     heroImage: "/materias/señas.jpeg",
     overview:
@@ -608,6 +741,18 @@ export const coursesData: Course[] = [
         module: "Aplicación Profesional",
         topics: ["LSA en educación", "LSA en salud", "LSA en ámbito judicial", "Accesibilidad"],
       },
+      {
+        module: "Tecnologías Asistivas",
+        topics: ["Apps de traducción", "Sistemas de comunicación aumentativa", "Tecnología para sordos"],
+      },
+      {
+        module: "Lingüística de LSA",
+        topics: ["Fonología de las lenguas de señas", "Morfología", "Sintaxis", "Variación dialectal"],
+      },
+      {
+        module: "Práctica Profesional",
+        topics: ["Simulacros de interpretación", "Trabajo en equipo", "Código deontológico", "Casos prácticos"],
+      },
     ],
     requirements: [
       "Interés genuino por la inclusión",
@@ -631,6 +776,10 @@ export const coursesData: Course[] = [
       "Consultor en accesibilidad",
     ],
     relatedCourses: ["criminalistica", "enfermeria-geriatrica", "secretariado-rrhh"],
+    contactInfo: {
+      email: "direccion@prolabeducativa.com",
+      website: "prolabaulavirtual.com/autogestion"
+    }
   },
 ]
 

@@ -2,12 +2,38 @@
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Award, CheckCircle, Globe } from "lucide-react"
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from "@/components/ui/carousel"
+import { Award } from "lucide-react"
+import Image from "next/image"
 
 const certifications = [
   "Cámara Argentina de Capacitación y Profesionalización",
   "Organización Internacional de Educación Profesional (O.I.E.P.)",
   "Comisión Psicosocial Latinoamericana (CPL)",
+]
+
+const certificateImages = [
+  {
+    src: "/certificados/MUESTRA-CERTIFICADO-CAMARA-ARGENTINA_page-0001.webp",
+    alt: "Certificado Cámara Argentina de Capacitación y Profesionalización",
+    title: "Cámara Argentina"
+  },
+  {
+    src: "/certificados/Certificado CPL.png",
+    alt: "Certificado Comisión Psicosocial Latinoamericana",
+    title: "CPL"
+  },
+  {
+    src: "/certificados/oiep-certificado.webp",
+    alt: "Certificado Organización Internacional de Educación Profesional",
+    title: "O.I.E.P."
+  }
 ]
 
 export default function Certifications() {
@@ -65,41 +91,42 @@ export default function Certifications() {
             </div>
           </div>
 
+          {/* Carousel de Certificados */}
           <div className="relative">
-            <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-prolab-violet/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="w-8 h-8 text-prolab-violet" />
-                </div>
-                <h3 className="text-xl font-bold text-prolab-black dark:text-white mb-2 font-heading">
-                  Certificación Pro-Lab Educativa
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm font-body">
-                  Validez Nacional e Internacional
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-600">
-                  <CheckCircle className="w-5 h-5 text-prolab-violet" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300 font-body">Reconocimiento oficial</span>
-                </div>
-                <div className="flex items-center space-x-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-600">
-                  <Globe className="w-5 h-5 text-prolab-violet" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300 font-body">Validez internacional</span>
-                </div>
-                <div className="flex items-center space-x-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-600">
-                  <Award className="w-5 h-5 text-prolab-violet" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300 font-body">Certificado digital + físico</span>
-                </div>
-              </div>
-
-              <div className="mt-6 p-4 bg-prolab-violet/5 rounded-lg border border-prolab-violet/10">
-                <p className="text-center text-sm text-prolab-violet dark:text-white font-medium font-body">
-                  💎 Todos nuestros certificados incluyen código QR de verificación digital
-                </p>
-              </div>
-            </div>
+            <Carousel 
+              className="w-full max-w-2xl mx-auto"
+              opts={{
+                loop: true,
+                align: "start"
+              }}
+            >
+              <CarouselContent>
+                {certificateImages.map((certificate, index) => (
+                  <CarouselItem key={index}>
+                    <div className="p-2">
+                      <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                        <div className="aspect-[4/3] relative">
+                          <Image
+                            src={certificate.src}
+                            alt={certificate.alt}
+                            fill
+                            className="object-contain p-4"
+                            sizes="(max-width: 768px) 100vw, 600px"
+                          />
+                        </div>
+                        <div className="p-4 text-center bg-gray-50 dark:bg-gray-700">
+                          <h4 className="font-semibold text-base text-prolab-black dark:text-white">
+                            {certificate.title}
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-4 bg-prolab-violet/5 text-prolab-violet border border-prolab-violet/10 hover:bg-prolab-violet hover:text-white" />
+              <CarouselNext className="right-4 bg-prolab-violet/5 text-prolab-violet border border-prolab-violet/10 hover:bg-prolab-violet hover:text-white" />
+            </Carousel>
           </div>
         </div>
       </div>

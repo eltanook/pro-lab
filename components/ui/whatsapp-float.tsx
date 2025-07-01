@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { MessageCircle } from "lucide-react"
+import { FaWhatsapp } from "react-icons/fa"
 
 export default function WhatsAppFloat() {
   const [isVisible, setIsVisible] = useState(false)
@@ -18,7 +18,7 @@ export default function WhatsAppFloat() {
     const message = encodeURIComponent(
       "¡Hola! Me interesa conocer más sobre los cursos de Pro-Lab Educativa. ¿Podrían brindarme información?",
     )
-    window.open(`https://wa.me/5491234567890?text=${message}`, "_blank")
+    window.open(`https://wa.me/5493425030140?text=${message}`, "_blank")
   }
 
   if (!isVisible) return null
@@ -30,7 +30,7 @@ export default function WhatsAppFloat() {
         className="w-12 h-12 sm:w-14 sm:h-14 bg-prolab-pink hover:bg-prolab-black rounded-full flex items-center justify-center border border-prolab-pink hover:border-prolab-black transition-all duration-300 hover:scale-110 group shadow-lg touch-manipulation"
         aria-label="Contactar por WhatsApp"
       >
-        <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7 text-white group-hover:scale-110 transition-transform" />
+        <FaWhatsapp className="w-6 h-6 sm:w-7 sm:h-7 text-white group-hover:scale-110 transition-transform" />
       </button>
     </div>
   )
