@@ -113,14 +113,14 @@ export default function Certifications() {
                             className="object-contain p-4"
                             sizes="(max-width: 768px) 100vw, 600px"
                           />
-                        </div>
+                </div>
                         <div className="p-4 text-center bg-gray-50 dark:bg-gray-700">
                           <h4 className="font-semibold text-base text-prolab-black dark:text-white">
                             {certificate.title}
                           </h4>
-                        </div>
-                      </div>
-                    </div>
+                </div>
+                </div>
+              </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>

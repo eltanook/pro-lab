@@ -51,7 +51,7 @@ export default function ContactoPage() {
           <div className="mt-8 sm:mt-12">
             <div className="bg-white rounded-xl overflow-hidden border border-gray-200">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3399.158!2d-60.764!3d-31.642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b5a9c7b8b0e0a1%3A0x123456789!2sAv.%20Ejercito%20Argentino%202515%2C%20Primer%20Piso%2C%20Santo%20Tom%C3%A9%2C%20Santa%20Fe%2C%20Argentina!5e0!3m2!1ses!2sar!4v1647875421234"
+                src="https://www.google.com/maps?&q=Av.+Ejercito+Argentino+2515,+Primer+Piso,+Santo+Tom%C3%A9,+Santa+Fe&z=18&output=embed&markers=Av.+Ejercito+Argentino+2515,+Primer+Piso,+Santo+Tom%C3%A9,+Santa+Fe"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}

@@ -106,68 +106,68 @@ export default function CourseInfo({ course }: CourseInfoProps) {
 
         {/* Contact Information - Solo si está definida para el curso */}
         {course.contactInfo && (
-          <div className="bg-prolab-violet rounded-xl p-8 text-white mt-8">
-            {/* Header */}
-            <div className="flex items-center space-x-3 mb-8">
-              <Mail className="w-6 h-6 text-white" />
-              <h3 className="text-xl font-semibold text-white font-heading">Información De Contacto</h3>
-            </div>
-            
-            {/* Contact Methods - Grid Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-              {/* Email */}
+        <div className="bg-prolab-violet rounded-xl p-8 text-white mt-8">
+          {/* Header */}
+          <div className="flex items-center space-x-3 mb-8">
+            <Mail className="w-6 h-6 text-white" />
+            <h3 className="text-xl font-semibold text-white font-heading">Información De Contacto</h3>
+          </div>
+          
+          {/* Contact Methods - Grid Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            {/* Email */}
               {course.contactInfo.email && (
-                <div className="flex items-start space-x-4">
-                  <div className="bg-white/10 p-3 rounded-lg">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-white/80 text-sm font-body mb-1">Email</p>
-                    <a 
+            <div className="flex items-start space-x-4">
+              <div className="bg-white/10 p-3 rounded-lg">
+                <Mail className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex-1">
+                <p className="text-white/80 text-sm font-body mb-1">Email</p>
+                <a 
                       href={`mailto:${course.contactInfo.email}`}
-                      className="text-white font-semibold hover:underline font-body text-lg"
-                    >
+                  className="text-white font-semibold hover:underline font-body text-lg"
+                >
                       {course.contactInfo.email}
-                    </a>
-                  </div>
-                </div>
+                </a>
+              </div>
+            </div>
               )}
 
-              {/* Website */}
+            {/* Website */}
               {course.contactInfo.website && (
-                <div className="flex items-start space-x-4">
-                  <div className="bg-white/10 p-3 rounded-lg">
-                    <Globe className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-white/80 text-sm font-body mb-1">Website</p>
-                    <a 
+            <div className="flex items-start space-x-4">
+              <div className="bg-white/10 p-3 rounded-lg">
+                <Globe className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex-1">
+                <p className="text-white/80 text-sm font-body mb-1">Website</p>
+                <a 
                       href={`https://${course.contactInfo.website}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white font-semibold hover:underline font-body text-lg"
-                    >
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white font-semibold hover:underline font-body text-lg"
+                >
                       {course.contactInfo.website}
-                    </a>
-                  </div>
-                </div>
+                </a>
+              </div>
+            </div>
               )}
 
               {/* Phone */}
               {course.contactInfo.phone && (
-                <div className="flex items-start space-x-4">
-                  <div className="bg-white/10 p-3 rounded-lg">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
+            <div className="flex items-start space-x-4">
+              <div className="bg-white/10 p-3 rounded-lg">
+                <Phone className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex-1">
                     <p className="text-white/80 text-sm font-body mb-1">Teléfono</p>
-                    <a 
+                <a 
                       href={`tel:+54${course.contactInfo.phone}`}
-                      className="text-white font-semibold hover:underline font-body text-lg"
-                    >
+                  className="text-white font-semibold hover:underline font-body text-lg"
+                >
                       +54 {course.contactInfo.phone}
-                    </a>
-                  </div>
+                </a>
+              </div>
                 </div>
               )}
 

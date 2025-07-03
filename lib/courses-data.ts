@@ -119,7 +119,7 @@ export const coursesData: Course[] = [
     ],
     relatedCourses: ["lsa", "marketing-digital", "personal-trainer"],
     contactInfo: {
-      email: "direccion@prolabeducativa.com",
+      email: "direccion@prolab.com.ar",
       website: "prolabaulavirtual.com/autogestion"
     }
   },
@@ -202,7 +202,7 @@ export const coursesData: Course[] = [
     ],
     relatedCourses: ["emprendimientos-digitales", "secretariado-rrhh", "criminalistica"],
     contactInfo: {
-      email: "direccion@prolabeducativa.com",
+      email: "direccion@prolab.com.ar",
       website: "prolabaulavirtual.com/autogestion"
     }
   },
@@ -220,72 +220,69 @@ export const coursesData: Course[] = [
     icon: "Dumbbell",
     heroImage: "/materias/trainer.jpg",
     overview:
-      "Conviértete en Personal Trainer certificada y ayuda a otros a alcanzar sus objetivos fitness. Aprende anatomía, fisiología del ejercicio, planificación de entrenamientos y técnicas de motivación para desarrollar una carrera exitosa en el mundo del fitness.",
+      "Formación intensiva para público general, profesores de educación física e instructores deportivos. Aprenderás desde las bases del entrenamiento hasta marketing aplicado para desarrollarte como profesional del fitness.",
     objectives: [
-      "Diseñar rutinas de entrenamiento personalizadas",
-      "Aplicar principios de anatomía y fisiología",
-      "Desarrollar habilidades de coaching y motivación",
-      "Crear planes nutricionales básicos",
-      "Gestionar tu negocio como trainer independiente",
+      "Diseñar planes de entrenamiento personalizados",
+      "Aplicar métodos y cargas de entrenamiento",
+      "Desarrollar programas de resistencia y fuerza",
+      "Implementar técnicas de movilidad y recuperación",
+      "Crear tu propuesta única de valor (PUV)",
     ],
     curriculum: [
       {
-        module: "Anatomía y Fisiología",
-        topics: ["Sistema muscular", "Sistema cardiovascular", "Biomecánica", "Adaptaciones al ejercicio"],
+        module: "Introducción al Entrenamiento",
+        topics: ["Leyes de adaptación", "Diagnóstico inicial", "Planificación"],
       },
       {
-        module: "Planificación del Entrenamiento",
-        topics: ["Periodización", "Evaluación física", "Diseño de rutinas", "Progresión de ejercicios"],
+        module: "Métodos y Cargas",
+        topics: ["Energía", "Respuestas cardiorrespiratorias", "Control de frecuencia cardiaca"],
       },
       {
-        module: "Entrenamiento Funcional",
-        topics: ["Ejercicios funcionales", "Entrenamiento con peso corporal", "Uso de implementos"],
+        module: "Resistencia Aeróbica",
+        topics: ["Tabata", "Circuitos funcionales", "Tendencias actuales"],
       },
       {
-        module: "Nutrición Deportiva",
-        topics: ["Macronutrientes", "Hidratación", "Suplementación", "Planes alimentarios básicos"],
+        module: "Fuerza 1",
+        topics: ["Adaptación anatómica", "Músculo esquelético", "Entrenamiento funcional"],
       },
       {
-        module: "Coaching y Negocio",
-        topics: ["Técnicas de motivación", "Comunicación efectiva", "Marketing personal", "Gestión de clientes"],
+        module: "Fuerza 2",
+        topics: ["Hipertrofia", "Periodización (micro/meso/macro)"],
       },
       {
-        module: "Patologías y Lesiones",
-        topics: ["Lesiones deportivas comunes", "Rehabilitación", "Ejercicio terapéutico", "Primeros auxilios"],
+        module: "Movilidad y Recuperación",
+        topics: ["Flexibilidad", "Stretching asistido"],
       },
       {
-        module: "Entrenamiento Especializado",
-        topics: ["Entrenamiento para tercera edad", "Ejercicio post-parto", "Entrenamiento adaptado"],
+        module: "Nutrición y Cineantropometría",
+        topics: ["Relación con el fitness", "Evaluación corporal"],
       },
       {
-        module: "Tecnología Fitness",
-        topics: ["Apps de entrenamiento", "Wearables", "Análisis de datos", "Entrenamiento virtual"],
+        module: "Marketing Aplicado",
+        topics: ["Propuesta única de valor (PUV)", "Planificación anual"],
       },
     ],
     requirements: [
-      "Interés genuino por el fitness",
-      "Condición física básica",
-      "Secundario completo",
+      "Interés por el fitness y la salud",
       "Disponibilidad para prácticas",
+      "Computadora con conexión a internet",
     ],
     benefits: [
-      "Trabajo flexible e independiente",
-      "Ingresos por sesión",
-      "Impacto positivo en la salud",
-      "Networking en el sector fitness",
-      "Posibilidad de especializaciones",
+      "Certificación nacional",
+      "Trabajo independiente",
+      "Alta demanda laboral",
+      "Desarrollo profesional continuo",
     ],
-    certification: "Certificado avalado por la Cámara Argentina de Capacitación y Profesionalización",
+    certification: "Certificado con validez nacional avalado por Pro-Lab Educativa",
     jobOpportunities: [
       "Personal Trainer independiente",
       "Instructor en gimnasios",
-      "Coach online",
       "Preparador físico",
-      "Instructor de clases grupales",
+      "Entrenador online",
     ],
     relatedCourses: ["enfermeria-geriatrica", "marketing-digital", "emprendimientos-digitales"],
     contactInfo: {
-      email: "direccion@prolabeducativa.com",
+      email: "direccion@prolab.com.ar",
       socialMedia: "@prolab-educativa"
     }
   },
@@ -443,7 +440,7 @@ export const coursesData: Course[] = [
     relatedCourses: ["secretariado-administrativo", "secretariado-rrhh", "enfermeria-geriatrica"],
     contactInfo: {
       phone: "3425030140",
-      email: "direccion@prolabeducativa.com",
+      email: "direccion@prolab.com.ar",
       website: "prolabaulavirtual.com"
     }
   },
@@ -527,7 +524,7 @@ export const coursesData: Course[] = [
     relatedCourses: ["secretariado-rrhh", "administracion-clinicas", "emprendimientos-digitales"],
     contactInfo: {
       phone: "3425030140",
-      email: "direccion@prolabeducativa.com",
+      email: "direccion@prolab.com.ar",
       website: "prolabaulavirtual.com"
     }
   },
@@ -611,7 +608,7 @@ export const coursesData: Course[] = [
     relatedCourses: ["secretariado-administrativo", "administracion-clinicas", "marketing-digital"],
     contactInfo: {
       phone: "3425030140",
-      email: "direccion@prolabeducativa.com",
+      email: "direccion@prolab.com.ar",
       website: "prolabaulavirtual.com/autogestion"
     }
   },
@@ -694,7 +691,7 @@ export const coursesData: Course[] = [
     ],
     relatedCourses: ["marketing-digital", "secretariado-administrativo", "personal-trainer"],
     contactInfo: {
-      email: "direccion@prolabeducativa.com",
+      email: "direccion@prolab.com.ar",
       website: "prolabaulavirtual.com/autogestion"
     }
   },
@@ -702,7 +699,7 @@ export const coursesData: Course[] = [
     slug: "lsa",
     title: "Lengua de Señas Argentina (LSA)",
     category: "Área Jurídica y Social",
-    description: "Inclusión laboral y comunicación accesible",
+    description: "Niveles 1 & 2 - Comunicación inclusiva",
     duration: "8 meses",
     modality: "Online en vivo",
     students: "160+ estudiantes",
@@ -712,72 +709,69 @@ export const coursesData: Course[] = [
     icon: "HandHeart",
     heroImage: "/materias/señas.jpeg",
     overview:
-      "Aprende Lengua de Señas Argentina y conviértete en un puente de comunicación para la comunidad sorda. Desarrolla habilidades de interpretación, traducción y comunicación inclusiva para trabajar en diversos ámbitos profesionales.",
+      "Formación completa en Lengua de Señas Argentina (LSA) niveles 1 y 2. Aprenderás desde los fundamentos hasta la comunicación avanzada, permitiéndote ser un puente efectivo con la comunidad sorda.",
     objectives: [
-      "Dominar la gramática de LSA",
-      "Desarrollar fluidez en la comunicación",
-      "Aplicar técnicas de interpretación",
+      "Dominar el alfabeto dactilológico y gramática visual",
+      "Desarrollar comunicación básica y avanzada",
+      "Manejar vocabulario cotidiano y especializado",
       "Comprender la cultura sorda",
-      "Promover la inclusión social",
+      "Lograr fluidez en diálogos extendidos",
     ],
     curriculum: [
       {
-        module: "Introducción a LSA",
-        topics: ["Historia de la lengua de señas", "Cultura sorda", "Alfabeto dactilológico"],
+        module: "Cultura Sorda e Introducción a LSA",
+        topics: ["Alfabeto dactilológico", "Gramática visual", "Expresividad facial"],
       },
       {
-        module: "Gramática y Estructura",
-        topics: ["Parámetros formativos", "Estructura gramatical", "Expresión facial", "Espacio de señas"],
+        module: "Comunicación Básica",
+        topics: ["Saludos", "Datos personales", "Preguntas simples"],
       },
       {
-        module: "Vocabulario Especializado",
-        topics: ["Señas cotidianas", "Vocabulario técnico", "Números y tiempo", "Colores y formas"],
+        module: "Familia y Entorno",
+        topics: ["Vocabulario cotidiano", "Relaciones personales"],
       },
       {
-        module: "Interpretación",
-        topics: ["Técnicas de interpretación", "Ética profesional", "Interpretación simultánea"],
+        module: "Actividades Diarias",
+        topics: ["Verbos frecuentes", "Tiempos", "Números (1-1000)"],
       },
       {
-        module: "Aplicación Profesional",
-        topics: ["LSA en educación", "LSA en salud", "LSA en ámbito judicial", "Accesibilidad"],
+        module: "Descripción",
+        topics: ["Características físicas", "Emociones", "Ropa", "Colores"],
       },
       {
-        module: "Tecnologías Asistivas",
-        topics: ["Apps de traducción", "Sistemas de comunicación aumentativa", "Tecnología para sordos"],
+        module: "Lugares y Viajes",
+        topics: ["Provincias argentinas", "Vocabulario básico"],
       },
       {
-        module: "Lingüística de LSA",
-        topics: ["Fonología de las lenguas de señas", "Morfología", "Sintaxis", "Variación dialectal"],
+        module: "Salud y Comunidad",
+        topics: ["Educación", "Emergencias", "Interacción en espacios públicos"],
       },
       {
-        module: "Práctica Profesional",
-        topics: ["Simulacros de interpretación", "Trabajo en equipo", "Código deontológico", "Casos prácticos"],
+        module: "Producción Avanzada",
+        topics: ["Diálogos extendidos", "Comprensión de señantes nativos"],
       },
     ],
     requirements: [
-      "Interés genuino por la inclusión",
-      "Habilidades motoras finas",
-      "Paciencia y empatía",
-      "Compromiso social",
+      "Interés por la inclusión",
+      "Compromiso con el aprendizaje",
+      "Computadora con conexión a internet",
     ],
     benefits: [
-      "Impacto social positivo",
-      "Demanda creciente",
-      "Trabajo en diversos sectores",
-      "Desarrollo personal",
+      "Formación integral en LSA",
       "Contribución a la inclusión",
+      "Desarrollo profesional",
+      "Impacto social positivo",
     ],
-    certification: "Certificado avalado por la Cámara Argentina de Capacitación y Profesionalización",
+    certification: "Certificado avalado por Pro-Lab Educativa",
     jobOpportunities: [
       "Intérprete de LSA",
       "Instructor de lengua de señas",
       "Facilitador en inclusión",
       "Asistente en educación especial",
-      "Consultor en accesibilidad",
     ],
     relatedCourses: ["criminalistica", "enfermeria-geriatrica", "secretariado-rrhh"],
     contactInfo: {
-      email: "direccion@prolabeducativa.com",
+      email: "direccion@prolab.com.ar",
       website: "prolabaulavirtual.com/autogestion"
     }
   },

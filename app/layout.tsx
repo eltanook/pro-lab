@@ -39,26 +39,44 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Pro-Lab Educativa - Formación Laboral con Certificación Nacional e Internacional",
-  description: "Centro de formación especializado en capacitaciones prácticas con certificación nacional e internacional. Cursos de Criminalística, Marketing Digital, Enfermería y más.",
-  keywords: "formación laboral, certificación nacional, certificación internacional, cursos online, criminalística, marketing digital, enfermería, capacitación profesional, educación a distancia, Argentina",
-  authors: [{ name: "Pro-Lab Educativa" }],
-  creator: "Nexium Solutions",
+  title: "Pro-Lab Educativa - Centro Líder en Formación Laboral con Certificación Nacional e Internacional",
+  description: "Centro líder en formación laboral especializada con certificación nacional e internacional. Cursos de Criminalística, Marketing Digital, LSA, Personal Trainer y más. Clases online en vivo con docentes expertos.",
+  keywords: "formación laboral, certificación nacional, certificación internacional, cursos online, criminalística, marketing digital, lengua de señas, personal trainer, capacitación profesional, educación a distancia, Argentina, Santo Tomé, Santa Fe",
+  authors: [{ name: "Pro-Lab Educativa", url: "https://prolab-educativa.com" }],
+  creator: "Pro-Lab Educativa",
   publisher: "Pro-Lab Educativa",
-  robots: "index, follow",
-  viewport: "width=device-width, initial-scale=1",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
   icons: {
-    icon: '/logo1.png',
-    shortcut: '/logo1.png',
-    apple: '/logo1.png',
+    icon: [
+      { url: '/logo1.png', sizes: '32x32', type: 'image/png' },
+      { url: '/logo2.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/logo2.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   openGraph: {
     type: 'website',
     locale: 'es_AR',
     url: 'https://prolab-educativa.com',
     siteName: 'Pro-Lab Educativa',
-    title: 'Pro-Lab Educativa - Formación Laboral con Certificación Nacional e Internacional',
-    description: 'Centro de formación especializado en capacitaciones prácticas con certificación nacional e internacional. Cursos de Criminalística, Marketing Digital, Enfermería y más.',
+    title: 'Pro-Lab Educativa - Centro Líder en Formación Laboral con Certificación Nacional e Internacional',
+    description: 'Centro líder en formación laboral especializada con certificación nacional e internacional. Cursos de Criminalística, Marketing Digital, LSA, Personal Trainer y más.',
     images: [
       {
         url: '/logo2.png',
@@ -70,13 +88,22 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pro-Lab Educativa - Formación Laboral con Certificación',
-    description: 'Centro de formación especializado en capacitaciones prácticas con certificación nacional e internacional.',
+    title: 'Pro-Lab Educativa - Centro Líder en Formación Laboral',
+    description: 'Centro líder en formación laboral especializada con certificación nacional e internacional.',
     images: ['/logo2.png'],
+    creator: '@prolab_educativa',
+    site: '@prolab_educativa',
   },
   alternates: {
     canonical: 'https://prolab-educativa.com',
+    languages: {
+      'es-AR': 'https://prolab-educativa.com',
+    },
   },
+  verification: {
+    google: 'verificación-google', // Reemplazar con el código real de verificación de Google
+  },
+  category: 'education',
 }
 
 export default function RootLayout({
@@ -106,9 +133,9 @@ export default function RootLayout({
               "logo": "https://prolab-educativa.com/logo2.png",
               "contactPoint": {
                 "@type": "ContactPoint",
-                                  "telephone": "+54-342-503-0140",
+                "telephone": "+54-342-503-0140",
                 "contactType": "customer service",
-                "email": "info@prolabeducativa.com.ar"
+                "email": "direccion@prolab.com.ar"
               },
               "address": {
                 "@type": "PostalAddress",
@@ -120,8 +147,7 @@ export default function RootLayout({
               "sameAs": [
                 "https://wa.me/5493425030140",
                 "https://www.instagram.com/prolab_educativa?igsh=MTduZmpmMG9jdzR6Zg==",
-                "https://www.facebook.com/profile.php?id=61576344784873",
-                "https://youtube.com/prolab-educativa"
+                "https://www.facebook.com/profile.php?id=61576344784873"
               ]
             })
           }}

@@ -50,15 +50,6 @@ export default function Footer() {
               >
                 <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
-              <a
-                href="https://youtube.com/prolab-educativa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-white/80 border border-white/20 hover:border-white/40 rounded-full transition-all"
-                style={{ padding: "6px 8px" }}
-              >
-                <Youtube className="w-4 h-4 sm:w-5 sm:h-5" />
-              </a>
             </div>
           </div>
 
@@ -145,7 +136,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-white/80" />
-                <span className="text-gray-200 font-body">info@prolabeducativa.com.ar</span>
+                <span className="text-gray-200 font-body">direccion@prolab.com.ar</span>
               </div>
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-white/80 mt-0.5" />
@@ -153,7 +144,35 @@ export default function Footer() {
               </div>
             </div>
 
-
+            <div className="flex space-x-3 mt-4">
+              <a
+                href="https://wa.me/5493425030140"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="hover:text-prolab-pink transition-colors"
+              >
+                <FaWhatsapp className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/prolab_educativa?igsh=MTduZmpmMG9jdzR6Zg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="hover:text-prolab-pink transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61576344784873"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="hover:text-prolab-pink transition-colors"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
 
