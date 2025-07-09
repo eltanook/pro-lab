@@ -64,10 +64,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/logo1.png', sizes: '32x32', type: 'image/png' },
-      { url: '/logo2.png', sizes: '192x192', type: 'image/png' },
+      { url: '/logo1.png', sizes: '192x192', type: 'image/png' },
     ],
     apple: [
-      { url: '/logo2.png', sizes: '180x180', type: 'image/png' },
+      { url: '/logo1.png', sizes: '180x180', type: 'image/png' },
     ],
   },
   openGraph: {
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     description: 'Centro líder en formación laboral especializada con certificación nacional e internacional. Cursos de Criminalística, Marketing Digital, LSA, Personal Trainer y más.',
     images: [
       {
-        url: '/logo2.png',
+        url: '/logo1.png',
         width: 1200,
         height: 630,
         alt: 'Pro-Lab Educativa - Centro de Formación Laboral',
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Pro-Lab Educativa - Centro Líder en Formación Laboral',
     description: 'Centro líder en formación laboral especializada con certificación nacional e internacional.',
-    images: ['/logo2.png'],
+    images: ['/logo1.png'],
     creator: '@prolab_educativa',
     site: '@prolab_educativa',
   },
@@ -130,7 +130,7 @@ export default function RootLayout({
               "name": "Pro-Lab Educativa",
               "description": "Centro de formación especializado en capacitaciones prácticas con certificación nacional e internacional",
               "url": "https://prolab-educativa.com",
-              "logo": "https://prolab-educativa.com/logo2.png",
+              "logo": "https://prolab-educativa.com/logo1.png",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+54-342-503-0140",
