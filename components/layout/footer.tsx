@@ -190,7 +190,15 @@ export default function Footer() {
                 className="text-white/80 hover:text-white transition-colors underline"
               >
                 Nexium Solutions
-              </a>
+              </a>{" "}y{" "}
+            <a 
+              href="https://ditiero.shop/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/80 hover:text-white transition-colors underline"
+              >
+              DiTiero
+            </a>
             </p>
           </div>
         </div>
