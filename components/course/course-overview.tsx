@@ -45,10 +45,6 @@ export default function CourseOverview({ course }: CourseOverviewProps) {
                   <span className="font-semibold text-prolab-violet dark:text-white font-body">{course.modality}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400 font-body">Estudiantes:</span>
-                  <span className="font-semibold text-prolab-violet dark:text-white font-body">{course.students}</span>
-                </div>
-                <div className="flex justify-between">
                   <span className="text-gray-600 dark:text-gray-400 font-body">Valoración:</span>
                   <div className="flex items-center space-x-2">
                     <div className="flex space-x-1">

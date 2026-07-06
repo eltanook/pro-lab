@@ -64,10 +64,6 @@ export default function CursosGrid({ courses }: { courses: SanityCourse[] }) {
                       <Clock className="w-4 h-4" />
                       <span className="font-body">{course.duration}</span>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4" />
-                      <span className="font-body">{course.students || "Online"}</span>
-                    </div>
                   </div>
 
                   <div className="flex gap-3 mt-auto pt-4 border-t border-gray-100 dark:border-gray-700">

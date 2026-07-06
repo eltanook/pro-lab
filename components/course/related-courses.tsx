@@ -60,14 +60,10 @@ export default async function RelatedCourses({ currentCourse }: RelatedCoursesPr
                     {course.description}
                   </p>
                   
-                  <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
+                  <div className="flex items-center gap-4 mb-4 text-sm text-gray-500 dark:text-gray-400">
                     <div className="flex items-center gap-1">
-                      <Clock className="w-4 h-4 text-prolab-violet" />
+                      <Clock className="w-4 h-4" />
                       <span className="font-body">{course.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4" />
-                      <span className="font-body">{course.students || "Online"}</span>
                     </div>
                   </div>
                 </div>

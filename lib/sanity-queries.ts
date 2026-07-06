@@ -19,7 +19,6 @@ export interface SanityCourse {
   whatIncludes: string[]
   popular: boolean
   heroImage: any
-  students?: string
   rating?: number
   isAsync?: boolean
   icon?: string
@@ -63,7 +62,6 @@ export async function getCourses(): Promise<SanityCourse[]> {
       whatIncludes,
       popular,
       heroImage,
-      students,
       rating,
       isAsync,
       icon,
@@ -95,7 +93,6 @@ export async function getCourseBySlug(slug: string): Promise<SanityCourse | null
       whatIncludes,
       popular,
       heroImage,
-      students,
       rating,
       isAsync,
       icon,
@@ -119,8 +116,7 @@ export async function getRelatedCourses(currentSlug: string): Promise<SanityCour
       description,
       duration,
       modality,
-      heroImage,
-      students
+      heroImage
     }`,
     { currentSlug }
   )

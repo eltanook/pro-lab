@@ -89,11 +89,6 @@ export const courseType = defineType({
       initialValue: false,
     }),
     defineField({
-      name: 'students',
-      title: 'Alumnos / Modalidad de Cursado',
-      type: 'string',
-    }),
-    defineField({
       name: 'rating',
       title: 'Calificación (ej. 4.9)',
       type: 'number',

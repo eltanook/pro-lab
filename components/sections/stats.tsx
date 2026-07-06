@@ -65,10 +65,6 @@ export default function Stats({ courses }: { courses: SanityCourse[] }) {
                       <Clock className="w-3.5 h-3.5" />
                       <span className="font-body">{course.duration}</span>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-3.5 h-3.5" />
-                      <span className="font-body">{course.students || "Online"}</span>
-                    </div>
                   </div>
 
                   <div className="mt-auto">
