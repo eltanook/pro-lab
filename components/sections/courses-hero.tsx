@@ -1,13 +1,23 @@
 import { GraduationCap, Users, Award } from "lucide-react"
+import FadeIn from "@/components/ui/fade-in"
+import type { SanitySiteSettings } from "@/lib/sanity-queries"
+import { urlForImage } from "@/sanity/lib/image"
 
-export default function CoursesHero() {
+export default function CoursesHero({ settings }: { settings?: SanitySiteSettings | null }) {
+  const defaults = {
+    titlePart1: "Nuestra Oferta",
+    titleHighlight: "Académica",
+    subtitle: "Cursos especializados diseñados para mujeres que buscan una salida laboral concreta en áreas de alta demanda profesional."
+  }
+  const coursesHero = settings?.coursesHero || defaults
+
   return (
     <section className="pt-32 pb-20 relative overflow-hidden">
       {/* Background Image with fixed attachment */}
       <div className="fixed inset-0 z-0">
         <img
-          src="/7.jpg"
-          alt="Cursos background"
+          src={coursesHero.image ? urlForImage(coursesHero.image).url() : "/7.jpg"}
+          alt={coursesHero.title}
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center' }}
         />
@@ -19,13 +29,12 @@ export default function CoursesHero() {
         <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 text-white">
           <div className="space-y-6">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Nuestra Oferta
-              <span className="text-prolab-violet"> Académica</span>
+              {coursesHero.titlePart1}
+              <span className="text-prolab-violet"> {coursesHero.titleHighlight}</span>
             </h1>
 
             <p className="text-xl opacity-90 max-w-2xl mx-auto">
-              Cursos especializados diseñados para mujeres que buscan una salida laboral concreta en áreas de alta
-              demanda profesional.
+              {coursesHero.subtitle}
             </p>
           </div>
 

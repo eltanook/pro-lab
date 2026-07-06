@@ -6,11 +6,12 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Star, Clock, Users, ArrowRight } from "lucide-react"
-import { coursesData } from "@/lib/courses-data"
+import type { SanityCourse } from "@/lib/sanity-queries"
+import { urlForImage } from "@/sanity/lib/image"
 
-export default function FeaturedCourses() {
-  // Obtener solo los cursos populares
-  const featuredCourses = coursesData.filter((course) => course.popular)
+export default function FeaturedCourses({ courses }: { courses: SanityCourse[] }) {
+  // Todas las diplomaturas son destacadas
+  const featuredCourses = courses
 
   return (
     <section className="relative py-16 sm:py-20 bg-white dark:bg-gray-900 z-10">
@@ -34,7 +35,7 @@ export default function FeaturedCourses() {
 
               <div className="relative h-48 sm:h-56 overflow-hidden">
                 <Image
-                  src={course.heroImage}
+                  src={course.heroImage ? urlForImage(course.heroImage).url() : "/placeholder.png"}
                   alt={course.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -58,14 +59,14 @@ export default function FeaturedCourses() {
                   </div>
                   <div className="flex items-center gap-1">
                     <Users className="w-4 h-4" />
-                    <span className="font-body">{course.students}</span>
+                    <span className="font-body">Online</span>
                   </div>
                 </div>
 
 
 
                 <div className="flex gap-3 mt-auto pt-4">
-                  <Link href={`/cursos/${course.slug}`} className="flex-1">
+                  <Link href={`/cursos/${course.slug.current}`} className="flex-1">
                     <Button
                       variant="outline"
                       className="w-full border-prolab-violet text-prolab-violet hover:bg-prolab-violet hover:text-white font-body font-semibold"
@@ -73,7 +74,7 @@ export default function FeaturedCourses() {
                       Consultar
                     </Button>
                   </Link>
-                  <Link href={`/cursos/${course.slug}`} className="flex-1">
+                  <Link href={`/cursos/${course.slug.current}`} className="flex-1">
                     <Button className="bg-prolab-violet hover:bg-prolab-violet/80 text-white w-full font-body font-semibold">Ver Detalles</Button>
                   </Link>
                 </div>

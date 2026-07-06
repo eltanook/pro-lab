@@ -2,11 +2,12 @@
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Clock, Users, Star, Award, Play } from "lucide-react"
-import type { Course } from "@/lib/courses-data"
+import { Clock, Users, Star, Award, Play, Calendar, MapPin } from "lucide-react"
+import type { SanityCourse } from "@/lib/sanity-queries"
+import { urlForImage } from "@/sanity/lib/image"
 
 interface CourseHeroProps {
-  course: Course
+  course: SanityCourse
 }
 
 export default function CourseHero({ course }: CourseHeroProps) {
@@ -53,11 +54,27 @@ export default function CourseHero({ course }: CourseHeroProps) {
                 </span>
               </div>
               <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                <Users className="w-5 h-5 text-white" />
+                <Award className="w-5 h-5 text-white" />
                 <span className="text-white font-body">
-                  <strong>Estudiantes:</strong> {course.students}
+                  <strong>Modalidad:</strong> {course.modality}
                 </span>
               </div>
+              {course.schedule && (
+                <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <Clock className="w-5 h-5 text-white" />
+                  <span className="text-white font-body">
+                    <strong>Horario:</strong> {course.schedule}
+                  </span>
+                </div>
+              )}
+              {course.startDate && (
+                <div className="flex items-center space-x-2 bg-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 border border-green-400/30">
+                  <Calendar className="w-5 h-5 text-green-300" />
+                  <span className="text-green-200 font-body">
+                    <strong>Próximo inicio:</strong> {course.startDate}
+                  </span>
+                </div>
+              )}
             </div>
 
             <div className="flex items-center space-x-4">
@@ -83,7 +100,7 @@ export default function CourseHero({ course }: CourseHeroProps) {
                 size="lg" 
                 variant="outline"
                 className="bg-transparent border-white text-white hover:bg-white hover:text-prolab-violet w-full sm:w-auto font-body font-semibold"
-                onClick={() => window.open(`mailto:info@prolabeducativa.com.ar?subject=Información sobre ${course.title}`, '_blank')}
+                onClick={() => window.open(`mailto:direccion@prolabeducativa.com?subject=Información sobre ${course.title}`, '_blank')}
               >
                 <Play className="w-4 h-4 mr-2" />
                 Más Información
@@ -94,10 +111,9 @@ export default function CourseHero({ course }: CourseHeroProps) {
           <div className="relative">
             <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
               <img
-                src={course.heroImage}
+                src={course.heroImage ? urlForImage(course.heroImage).url() : "/placeholder.png"}
                 alt={course.title}
-                className="w-full rounded-xl object-cover"
-                style={{ height: "400px" }}
+                className="w-full aspect-video rounded-xl object-cover"
               />
               <div className="absolute -bottom-4 -right-4 bg-prolab-violet text-white p-4 rounded-xl border border-white/20 backdrop-blur-sm">
                 <div className="text-center">

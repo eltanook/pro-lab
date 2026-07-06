@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
-import { getCourseBySlug, getRelatedCourses } from "@/lib/courses-data"
+import { urlForImage } from "@/sanity/lib/image"
+import { getCourseBySlug, getCourses } from "@/lib/sanity-queries"
 import CourseHero from "@/components/course/course-hero"
 import CourseOverview from "@/components/course/course-overview"
 import CourseCurriculum from "@/components/course/course-curriculum"
@@ -16,7 +17,7 @@ interface CoursePageProps {
 }
 
 export async function generateMetadata({ params }: CoursePageProps): Promise<Metadata> {
-  const course = getCourseBySlug(params.slug)
+  const course = await getCourseBySlug(params.slug)
   
   if (!course) {
     return {
@@ -32,11 +33,11 @@ export async function generateMetadata({ params }: CoursePageProps): Promise<Met
     openGraph: {
       title: `${course.title} | Pro-Lab Educativa - Formación Laboral Certificada`,
       description: course.description,
-      url: `https://prolab-educativa.com/cursos/${course.slug}`,
+      url: `https://prolabeducativa.com/cursos/${course.slug}`,
       type: 'article',
       images: [
         {
-          url: course.heroImage,
+          url: course.heroImage ? urlForImage(course.heroImage).url() : "/placeholder.png",
           width: 1200,
           height: 630,
           alt: `${course.title} - Pro-Lab Educativa`,
@@ -49,14 +50,14 @@ export async function generateMetadata({ params }: CoursePageProps): Promise<Met
       card: 'summary_large_image',
       title: `${course.title} | Pro-Lab Educativa`,
       description: course.description,
-      images: [course.heroImage],
+      images: [course.heroImage ? urlForImage(course.heroImage).url() : "/placeholder.png"],
       creator: '@prolab_educativa',
       site: '@prolab_educativa',
     },
     alternates: {
-      canonical: `https://prolab-educativa.com/cursos/${course.slug}`,
+      canonical: `https://prolabeducativa.com/cursos/${course.slug}`,
       languages: {
-        'es-AR': `https://prolab-educativa.com/cursos/${course.slug}`,
+        'es-AR': `https://prolabeducativa.com/cursos/${course.slug}`,
       },
     },
     robots: {
@@ -69,9 +70,8 @@ export async function generateMetadata({ params }: CoursePageProps): Promise<Met
   }
 }
 
-export default function CoursePage({ params }: CoursePageProps) {
-  const course = getCourseBySlug(params.slug)
-  const relatedCourses = getRelatedCourses(params.slug)
+export default async function CoursePage({ params }: CoursePageProps) {
+  const course = await getCourseBySlug(params.slug)
 
   if (!course) {
     notFound()
@@ -91,9 +91,9 @@ export default function CoursePage({ params }: CoursePageProps) {
 }
 
 export async function generateStaticParams() {
-  const { coursesData } = await import("@/lib/courses-data")
+  const courses = await getCourses()
 
-  return coursesData.map((course) => ({
-    slug: course.slug,
+  return courses.map((course) => ({
+    slug: course.slug.current,
   }))
 }

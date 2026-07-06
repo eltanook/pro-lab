@@ -1,8 +1,8 @@
 import { CheckCircle, Star } from "lucide-react"
-import type { Course } from "@/lib/courses-data"
+import type { SanityCourse } from "@/lib/sanity-queries"
 
 interface CourseOverviewProps {
-  course: Course
+  course: SanityCourse
 }
 
 export default function CourseOverview({ course }: CourseOverviewProps) {
@@ -16,18 +16,20 @@ export default function CourseOverview({ course }: CourseOverviewProps) {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-            <div className="space-y-6">
-              <h3 className="text-lg sm:text-xl font-semibold text-prolab-black dark:text-white font-heading">Objetivos Del Curso</h3>
-              <ul className="space-y-3">
-                {course.objectives.map((objective, index) => (
-                  <li key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-prolab-pink mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700 dark:text-gray-300 font-body">{objective}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className={`grid ${course.objectives ? 'md:grid-cols-2' : 'md:grid-cols-1 max-w-2xl mx-auto'} gap-8 lg:gap-12`}>
+            {course.objectives && (
+              <div className="space-y-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-prolab-black dark:text-white font-heading">Objetivos Del Curso</h3>
+                <ul className="space-y-4 text-gray-600 dark:text-gray-300">
+                  {(course.objectives || []).map((objective, index) => (
+                    <li key={index} className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-prolab-pink mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 dark:text-gray-300 font-body">{objective}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             <div className="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
               <h3 className="text-lg sm:text-xl font-semibold text-prolab-black dark:text-white mb-4 font-heading">

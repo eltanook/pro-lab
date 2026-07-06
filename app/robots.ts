@@ -10,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         '/_next/',
       ],
     },
-    sitemap: 'https://prolab-educativa.com/sitemap.xml',
+    sitemap: 'https://prolabeducativa.com/sitemap.xml',
   }
 } 

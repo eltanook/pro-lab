@@ -3,10 +3,10 @@
 import { useState } from "react"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { ChevronDown, ChevronUp, BookOpen } from "lucide-react"
-import type { Course } from "@/lib/courses-data"
+import type { SanityCourse } from "@/lib/sanity-queries"
 
 interface CourseCurriculumProps {
-  course: Course
+  course: SanityCourse
 }
 
 export default function CourseCurriculum({ course }: CourseCurriculumProps) {
@@ -34,7 +34,7 @@ export default function CourseCurriculum({ course }: CourseCurriculumProps) {
           </div>
 
           <div className="space-y-4">
-            {course.curriculum.map((curriculumItem, index) => (
+            {(course.curriculum || []).map((curriculumItem, index) => (
               <Collapsible key={index} className="w-full">
                 <CollapsibleTrigger
                   className="w-full bg-gray-50 dark:bg-gray-800 p-4 sm:p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-prolab-pink/30 transition-all duration-300 text-left"
@@ -54,18 +54,18 @@ export default function CourseCurriculum({ course }: CourseCurriculumProps) {
                 </CollapsibleTrigger>
                 <CollapsibleContent className="px-4 sm:px-6 pb-4 sm:pb-6">
                   <div className="bg-white dark:bg-gray-900 rounded-lg p-4 sm:p-6 border border-gray-100 dark:border-gray-700 mt-2">
-                    <div className="space-y-3">
-                      {curriculumItem.topics.map((topic, topicIndex) => (
-                        <div key={topicIndex} className="flex items-start space-x-3">
+                    <ul className="space-y-3 pt-2">
+                      {(curriculumItem.topics || []).map((topic, topicIndex) => (
+                        <li key={topicIndex} className="flex items-start gap-3 group">
                           <div className="w-1.5 h-1.5 bg-prolab-pink rounded-full flex-shrink-0 mt-2"></div>
                           <div className="flex-1">
                             <p className="text-sm text-gray-600 dark:text-gray-400 font-body">
                               {topic}
                             </p>
                           </div>
-                        </div>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </CollapsibleContent>
               </Collapsible>

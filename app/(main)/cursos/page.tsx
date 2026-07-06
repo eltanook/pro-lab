@@ -1,9 +1,9 @@
 import CoursesHero from "@/components/sections/courses-hero"
-import FeaturedCourses from "@/components/sections/featured-courses"
-import CoursesCatalogNew from "@/components/sections/courses-catalog-new"
+import CursosGrid from "@/components/sections/cursos-grid"
 import JobBoard from "@/components/sections/job-board"
 import WhatsAppFloat from "@/components/ui/whatsapp-float"
 import type { Metadata } from "next"
+import { getCourses, getSiteSettings } from "@/lib/sanity-queries"
 
 export const metadata: Metadata = {
   title: "Cursos Online con Certificación Nacional e Internacional | Pro-Lab Educativa",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cursos Online con Certificación | Pro-Lab Educativa",
     description: "Descubre nuestro catálogo completo de cursos online con certificación nacional e internacional.",
-    url: "https://prolab-educativa.com/cursos",
+    url: "https://prolabeducativa.com/cursos",
     images: [
       {
         url: "/7.jpg",
@@ -23,17 +23,21 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://prolab-educativa.com/cursos",
+    canonical: "https://prolabeducativa.com/cursos",
   },
 }
 
-export default function CursosPage() {
+export default async function CursosPage() {
+  const [courses, settings] = await Promise.all([
+    getCourses(),
+    getSiteSettings(),
+  ])
+
   return (
     <>
-      <CoursesHero />
-      <FeaturedCourses />
-      <CoursesCatalogNew />
-      <JobBoard />
+      <CoursesHero settings={settings} />
+      <CursosGrid courses={courses} />
+      <JobBoard settings={settings} />
       <WhatsAppFloat />
     </>
   )

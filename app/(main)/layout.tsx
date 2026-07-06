@@ -1,10 +1,11 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter, Manrope, Nunito, Rubik, Poppins } from "next/font/google"
-import "./globals.css"
+import "../globals.css"
 import Header from "@/components/layout/header"
 import Footer from "@/components/layout/footer"
 import { ThemeProvider } from "@/components/theme-provider"
+import { getSiteSettings } from "@/lib/sanity-queries"
 
 // Configuración de fuentes
 const inter = Inter({ 
@@ -38,11 +39,18 @@ const poppins = Poppins({
   display: "swap"
 })
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+}
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://prolabeducativa.com'),
   title: "Pro-Lab Educativa - Centro Líder en Formación Laboral con Certificación Nacional e Internacional",
   description: "Centro líder en formación laboral especializada con certificación nacional e internacional. Cursos de Criminalística, Marketing Digital, LSA, Personal Trainer y más. Clases online en vivo con docentes expertos.",
   keywords: "formación laboral, certificación nacional, certificación internacional, cursos online, criminalística, marketing digital, lengua de señas, personal trainer, capacitación profesional, educación a distancia, Argentina, Santo Tomé, Santa Fe",
-  authors: [{ name: "Pro-Lab Educativa", url: "https://prolab-educativa.com" }],
+  authors: [{ name: "Pro-Lab Educativa", url: "https://prolabeducativa.com" }],
   creator: "Pro-Lab Educativa",
   publisher: "Pro-Lab Educativa",
   robots: {
@@ -56,11 +64,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
   icons: {
     icon: [
       { url: '/logo1.png', sizes: '32x32', type: 'image/png' },
@@ -72,7 +75,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_AR',
-    url: 'https://prolab-educativa.com',
+    url: 'https://prolabeducativa.com',
     siteName: 'Pro-Lab Educativa',
     title: 'Pro-Lab Educativa - Centro Líder en Formación Laboral con Certificación Nacional e Internacional',
     description: 'Centro líder en formación laboral especializada con certificación nacional e internacional. Cursos de Criminalística, Marketing Digital, LSA, Personal Trainer y más.',
@@ -94,9 +97,9 @@ export const metadata: Metadata = {
     site: '@prolab_educativa',
   },
   alternates: {
-    canonical: 'https://prolab-educativa.com',
+    canonical: 'https://prolabeducativa.com',
     languages: {
-      'es-AR': 'https://prolab-educativa.com',
+      'es-AR': 'https://prolabeducativa.com',
     },
   },
   verification: {
@@ -105,11 +108,13 @@ export const metadata: Metadata = {
   category: 'education',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const settings = await getSiteSettings()
+
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
@@ -118,7 +123,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link rel="canonical" href="https://prolab-educativa.com" />
+        <link rel="canonical" href="https://prolabeducativa.com" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/logo1.png" sizes="32x32" type="image/png" />
         <link rel="apple-touch-icon" href="/logo1.png" sizes="180x180" type="image/png" />
@@ -130,8 +135,8 @@ export default function RootLayout({
               "@type": "EducationalOrganization",
               "name": "Pro-Lab Educativa",
               "description": "Centro de formación especializado en capacitaciones prácticas con certificación nacional e internacional",
-              "url": "https://prolab-educativa.com",
-              "logo": "https://prolab-educativa.com/logo2.png",
+              "url": "https://prolabeducativa.com",
+              "logo": "https://prolabeducativa.com/logo2.png",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+54-342-503-0140",
@@ -156,9 +161,9 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${manrope.variable} ${nunito.variable} ${rubik.variable} ${poppins.variable} font-body antialiased`}>
         <ThemeProvider defaultTheme="light" storageKey="prolab-ui-theme">
-          <Header />
+          <Header settings={settings} />
           <main>{children}</main>
-          <Footer />
+          <Footer settings={settings} />
         </ThemeProvider>
       </body>
     </html>

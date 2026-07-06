@@ -4,10 +4,10 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, Award, Briefcase, FileText, Mail, Globe, Phone, Users, BookOpen, Target, Package } from "lucide-react"
 import { FaWhatsapp } from "react-icons/fa"
-import type { Course } from "@/lib/courses-data"
+import type { SanityCourse } from "@/lib/sanity-queries"
 
 interface CourseInfoProps {
-  course: Course
+  course: SanityCourse
 }
 
 export default function CourseInfo({ course }: CourseInfoProps) {
@@ -24,7 +24,7 @@ export default function CourseInfo({ course }: CourseInfoProps) {
               <h3 className="text-base sm:text-lg font-semibold text-prolab-black dark:text-white font-heading">Beneficios</h3>
             </div>
             <ul className="space-y-3">
-              {course.benefits.map((benefit, index) => (
+              {(course.benefits || []).map((benefit, index) => (
                 <li key={index} className="flex items-start space-x-2">
                   <CheckCircle className="w-4 h-4 text-prolab-violet mt-0.5 flex-shrink-0" />
                   <span className="text-gray-600 dark:text-gray-300 text-sm font-body">{benefit}</span>
@@ -40,7 +40,7 @@ export default function CourseInfo({ course }: CourseInfoProps) {
               <h3 className="text-base sm:text-lg font-semibold text-prolab-black dark:text-white font-heading">Salida Laboral</h3>
             </div>
             <ul className="space-y-3">
-              {course.jobOpportunities.map((job, index) => (
+              {(course.jobOpportunities || []).map((job, index) => (
                 <li key={index} className="flex items-start space-x-2">
                   <CheckCircle className="w-4 h-4 text-prolab-violet mt-0.5 flex-shrink-0" />
                   <span className="text-gray-600 dark:text-gray-300 text-sm font-body">{job}</span>
@@ -71,7 +71,7 @@ export default function CourseInfo({ course }: CourseInfoProps) {
                 <h3 className="text-base sm:text-lg font-semibold text-prolab-black dark:text-white font-heading">¿Qué Incluye?</h3>
               </div>
               <ul className="space-y-3">
-                {course.whatIncludes.map((item, index) => (
+                {(course.whatIncludes || []).map((item, index) => (
                   <li key={index} className="flex items-start space-x-2">
                     <CheckCircle className="w-4 h-4 text-prolab-violet mt-0.5 flex-shrink-0" />
                     <span className="text-gray-600 dark:text-gray-300 text-sm font-body">{item}</span>

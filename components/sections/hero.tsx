@@ -2,8 +2,12 @@
 
 import { Button } from "@/components/ui/button"
 import { CheckCircle, ArrowRight, Play, ChevronDown } from "lucide-react"
+import type { SanitySiteSettings } from "@/lib/sanity-queries"
+import { urlForImage } from "@/sanity/lib/image"
 
-export default function Hero() {
+export default function Hero({ settings }: { settings?: SanitySiteSettings | null }) {
+  const currentYear = new Date().getFullYear()
+
   const scrollToNextSection = () => {
     const aboutSection = document.getElementById('about-section')
     if (aboutSection) {
@@ -39,24 +43,23 @@ export default function Hero() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-left space-y-6 sm:space-y-8">
-            {/* Badge de estado más sobrio */}
+            {/* Badge de estado */}
             <div className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
               <div className="w-2 h-2 bg-prolab-violet rounded-full animate-pulse"></div>
-              <span className="text-white text-sm font-body font-medium">Inscripciones Abiertas 2024</span>
+              <span className="text-white text-sm font-body font-medium">Inscripciones Abiertas {currentYear}</span>
             </div>
 
-            {/* Título principal más profesional */}
+            {/* Título principal */}
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-tight">
-                <span className="block text-white">Pro-Lab Educativa</span>
+                <span className="block text-white">{settings?.hero?.title || "Pro-Lab Educativa"}</span>
               </h1>
               <p className="text-xl sm:text-2xl lg:text-3xl text-gray-200 font-heading font-medium leading-relaxed">
-                Formación Laboral con{" "}
-                <span className="text-prolab-violet font-bold">Certificación Nacional</span>
+                <span className="text-prolab-violet font-bold">{settings?.hero?.subtitle || "Psicología aplicada para la vida real"}</span>
               </p>
             </div>
 
-            {/* Características destacadas con estilo más serio */}
+            {/* Características destacadas */}
             <div className="space-y-3">
               <div className="flex items-center justify-start space-x-3">
                 <CheckCircle className="w-5 h-5 text-prolab-violet" />
@@ -66,53 +69,53 @@ export default function Hero() {
                 <CheckCircle className="w-5 h-5 text-prolab-violet" />
                 <span className="text-gray-200 font-body">Modalidad online con clases en vivo</span>
               </div>
-              <div className="flex items-center justify-start space-x-3">
-                <CheckCircle className="w-5 h-5 text-prolab-violet" />
-                <span className="text-gray-200 font-body">Más de 95% de inserción laboral</span>
-              </div>
             </div>
 
-            {/* Botones más profesionales y consistentes */}
+            {/* Botones */}
             <div className="flex flex-col sm:flex-row gap-4 justify-start pt-4">
               <Button
                 size="lg"
                 className="bg-prolab-violet hover:bg-prolab-violet/80 text-white border-0 group w-full sm:w-auto font-body font-semibold text-lg px-8 py-4"
                 onClick={() => (window.location.href = "/cursos")}
               >
-                Ver Cursos
+                {settings?.hero?.buttonText || "Ver Cursos"}
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="bg-transparent border-white text-white hover:bg-white hover:text-prolab-violet w-full sm:w-auto font-body font-semibold text-lg px-8 py-4"
-                onClick={() => (window.location.href = "/contacto")}
+                onClick={() => (window.location.href = "/sedes")}
               >
                 <Play className="w-4 h-4 mr-2" />
-                Conocer Más
+                Representantes / Sedes
               </Button>
             </div>
           </div>
 
-          {/* Imagen/Gráfico del lado derecho más serio - Oculta en móvil */}
+          {/* Imagen del lado derecho - Oculta en móvil */}
           <div className="relative hidden lg:block">
             <div className="relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
               <img
-                src="/3.jpg"
-                alt="Estudiantes de Pro-Lab Educativa"
+                src={settings?.hero?.image ? urlForImage(settings.hero.image).url() : "/psychology-hero.png"}
+                alt={settings?.hero?.title || "Psicología aplicada y estudiantes de Pro-Lab"}
                 className="w-full rounded-2xl object-cover"
                 style={{ height: "400px" }}
               />
-              <div className="absolute -bottom-6 -left-6 bg-prolab-violet text-white p-6 rounded-xl border border-white/10 backdrop-blur-sm">
-                <div className="text-2xl font-bold font-display text-white">1000+</div>
-                <div className="text-sm text-gray-200 font-body">Egresados Exitosos</div>
-              </div>
+              <button 
+                onClick={() => window.location.href = "/cursos"}
+                className="absolute -bottom-6 -left-6 bg-prolab-violet hover:bg-prolab-violet/90 text-white p-6 rounded-xl border border-white/10 backdrop-blur-sm shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 group cursor-pointer text-left"
+                aria-label="Ver Cursos"
+              >
+                <div className="text-2xl font-bold font-display text-white group-hover:text-prolab-pink transition-colors">+900</div>
+                <div className="text-sm text-gray-200 font-body">Alumnos formados</div>
+              </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Botón de scroll hacia abajo - Reimplementado */}
+      {/* Botón de scroll hacia abajo */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
         <button
           onClick={scrollToNextSection}

@@ -1,204 +1,117 @@
 "use client"
 
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Instagram, Facebook, Youtube, Phone, Mail, MapPin } from "lucide-react"
+import { Instagram, Facebook, Phone, Mail, MapPin } from "lucide-react"
 import { FaWhatsapp } from "react-icons/fa"
 import Image from "next/image"
+import type { SanitySiteSettings } from "@/lib/sanity-queries"
 
-export default function Footer() {
+export default function Footer({ settings }: { settings?: SanitySiteSettings | null }) {
   return (
-    <footer className="bg-gray-800 dark:bg-gray-950 text-white relative z-10">
-      <div className="container mx-auto px-4 py-8 lg:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          <div className="space-y-4">
-            <Link href="/" className="flex items-center">
-                             <Image
-                 src="/logo2.png"
-                 alt="Pro-Lab Educativa"
-                 width={180}
-                 height={40}
-                 className="h-8 w-auto"
-               />
+    <footer className="bg-black text-white relative z-10">
+      <div className="container mx-auto px-4 py-10 lg:py-12">
+        
+        {/* Contenedor principal flex row con justify-between para igual distancia */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 mb-10 w-full">
+          
+          {/* 1. Logo a la izquierda */}
+          <div className="flex-shrink-0">
+            <Link href="/" className="inline-flex items-center">
+              <Image
+                src="/logo2.png"
+                alt="Pro-Lab Educativa"
+                width={200}
+                height={50}
+                className="h-10 w-auto"
+              />
             </Link>
-            <p className="text-gray-200 text-sm leading-relaxed font-body">
-              Centro líder en formación laboral especializada con certificación nacional e internacional.
-            </p>
-            <div className="flex space-x-3">
-              <a
-                href="https://wa.me/5493425030140"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-white/80 p-1 sm:p-2 border border-white/20 hover:border-white/40 rounded-full transition-all"
-              >
-                <FaWhatsapp className="w-4 h-4 sm:w-5 sm:h-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/prolab_educativa?igsh=MTduZmpmMG9jdzR6Zg=="
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-white/80 p-1 sm:p-2 border border-white/20 hover:border-white/40 rounded-full transition-all"
-              >
-                <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
-              </a>
-              <a
-                href="https://www.facebook.com/profile.php?id=61576344784873"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-white/80 border border-white/20 hover:border-white/40 rounded-full transition-all"
-                style={{ padding: "6px 8px" }}
-              >
-                <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
-              </a>
-            </div>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-base font-heading font-semibold">Cursos Destacados</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/cursos/criminalistica"
-                  className="text-gray-200 hover:text-white transition-colors font-body"
-                >
-                  Ciencias Criminalísticas
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/cursos/marketing-digital"
-                  className="text-gray-200 hover:text-white transition-colors font-body"
-                >
-                  Marketing Digital
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/cursos/personal-trainer"
-                  className="text-gray-200 hover:text-white transition-colors font-body"
-                >
-                  Personal Trainer
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/cursos/lsa"
-                  className="text-gray-200 hover:text-white transition-colors font-body"
-                >
-                  Lengua de Señas Argentina
-                </Link>
-              </li>
-            </ul>
+          {/* 2. Teléfono */}
+          <div className="flex items-center space-x-2 text-gray-300 flex-shrink-0">
+            <Phone className="w-5 h-5 text-prolab-violet flex-shrink-0" />
+            <a href={`tel:+${settings?.contact?.phoneRaw || '5493425030140'}`} className="font-body hover:text-white transition-colors">
+              {settings?.contact?.phone || '+54 342 503-0140'}
+            </a>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-base font-heading font-semibold">Enlaces Útiles</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/cursos" className="text-gray-200 hover:text-white transition-colors font-body">
-                  Todos los Cursos
-                </Link>
-              </li>
-              <li>
-                <Link href="/contacto" className="text-gray-200 hover:text-white transition-colors font-body">
-                  Contacto
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="https://prolabaulavirtual.com/autogestion/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-200 hover:text-white transition-colors font-body"
-                >
-                  Campus Virtual
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://prolabaulavirtual.com/autogestion/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-200 hover:text-white transition-colors font-body"
-                >
-                  Aula Virtual
-                </a>
-              </li>
-            </ul>
+          {/* 3. Email */}
+          <div className="flex items-center space-x-2 text-gray-300 flex-shrink-0">
+            <Mail className="w-5 h-5 text-prolab-violet flex-shrink-0" />
+            <a href={`mailto:${settings?.contact?.email || 'direccion@prolab.com.ar'}`} className="font-body hover:text-white transition-colors">
+              {settings?.contact?.email || 'direccion@prolab.com.ar'}
+            </a>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-base font-heading font-semibold">Contacto</h3>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-white/80" />
-                <span className="text-gray-200 font-body">+54 342 503-0140</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-white/80" />
-                <span className="text-gray-200 font-body">direccion@prolab.com.ar</span>
-              </div>
-              <div className="flex items-start space-x-2">
-                <MapPin className="w-4 h-4 text-white/80 mt-0.5" />
-                <span className="text-gray-200 leading-relaxed font-body">Av. Ejercito Argentino 2515, Primer Piso, Santo Tomé, Santa Fe</span>
-              </div>
-            </div>
+          {/* 4. Dirección (con más ancho) */}
+          <div className="flex items-center space-x-2 text-gray-300 max-w-[300px] text-left flex-shrink-0">
+            <MapPin className="w-5 h-5 text-prolab-violet flex-shrink-0 mt-0.5" />
+            <span className="font-body leading-tight text-sm">
+              {settings?.contact?.address || 'Av. Ejercito Argentino 2515, Primer Piso, Santo Tomé, Santa Fe'}
+            </span>
+          </div>
 
-            <div className="flex space-x-3 mt-4">
+          {/* 5. Redes sociales */}
+          <div className="flex items-center justify-center space-x-4 flex-shrink-0">
+            {settings?.social?.whatsapp && (
               <a
-                href="https://wa.me/5493425030140"
+                href={settings.social.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="hover:text-prolab-pink transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white hover:border-prolab-violet hover:text-prolab-violet transition-all duration-200"
               >
                 <FaWhatsapp className="w-5 h-5" />
               </a>
+            )}
+            {settings?.social?.instagram && (
               <a
-                href="https://www.instagram.com/prolab_educativa?igsh=MTduZmpmMG9jdzR6Zg=="
+                href={settings.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="hover:text-prolab-pink transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white hover:border-prolab-violet hover:text-prolab-violet transition-all duration-200"
               >
                 <Instagram className="w-5 h-5" />
               </a>
+            )}
+            {settings?.social?.facebook && (
               <a
-                href="https://www.facebook.com/profile.php?id=61576344784873"
+                href={settings.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="hover:text-prolab-pink transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white hover:border-prolab-violet hover:text-prolab-violet transition-all duration-200"
               >
                 <Facebook className="w-5 h-5" />
               </a>
-            </div>
+            )}
           </div>
         </div>
 
-        <div className="border-t border-white/20 dark:border-gray-700 mt-8 pt-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
-            <p className="text-gray-200 text-xs sm:text-sm font-body">
-              © 2025 Pro-Lab Educativa. Todos los derechos reservados.
-            </p>
-            <p className="text-gray-200 text-xs sm:text-sm font-body">
+        {/* Divisor */}
+        <div className="border-t border-white/10 pt-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-500 font-body">
+            <p>{settings?.footer?.copyrightText || `© ${new Date().getFullYear()} Pro-Lab Educativa. Todos los derechos reservados.`}</p>
+            <p>
               Desarrollado por{" "}
               <a
                 href="https://nexiumsolutions.online/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-white transition-colors underline"
+                className="text-gray-400 hover:text-white transition-colors underline"
               >
                 Nexium Solutions
-              </a>{" "}y{" "}
-            <a 
-              href="https://ditiero.shop/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white/80 hover:text-white transition-colors underline"
+              </a>{" "}
+              y{" "}
+              <a
+                href="https://ditiero.shop/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors underline"
               >
-              DiTiero
-            </a>
+                DiTiero
+              </a>
             </p>
           </div>
         </div>

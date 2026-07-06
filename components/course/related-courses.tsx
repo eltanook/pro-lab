@@ -1,18 +1,18 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Clock, Users, Star } from "lucide-react"
-import { getRelatedCourses } from "@/lib/courses-data"
-import type { Course } from "@/lib/courses-data"
+import { Clock, Users } from "lucide-react"
+import { getRelatedCourses, type SanityCourse } from "@/lib/sanity-queries"
+import { urlForImage } from "@/sanity/lib/image"
 
 interface RelatedCoursesProps {
-  currentCourse: Course
+  currentCourse: SanityCourse
 }
 
-export default function RelatedCourses({ currentCourse }: RelatedCoursesProps) {
-  // Obtener cursos relacionados usando la función existente
-  const relatedCourses = getRelatedCourses(currentCourse.slug)
+export default async function RelatedCourses({ currentCourse }: RelatedCoursesProps) {
+  const relatedCourses = await getRelatedCourses(currentCourse.slug.current)
 
   if (relatedCourses.length === 0) return null
 
@@ -30,13 +30,15 @@ export default function RelatedCourses({ currentCourse }: RelatedCoursesProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {relatedCourses.map((course) => (
-            <Card key={course.slug} 
+            <Card key={course._id} 
               className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:border-prolab-pink/30 transition-all duration-300 flex flex-col"
             >
               <div className="relative">
-                <img
-                  src={course.heroImage}
+                <Image
+                  src={course.heroImage ? urlForImage(course.heroImage).url() : "/placeholder.png"}
                   alt={course.title}
+                  width={400}
+                  height={200}
                   className="w-full h-48 object-cover"
                 />
                 <div className="absolute top-4 left-4">
@@ -64,15 +66,13 @@ export default function RelatedCourses({ currentCourse }: RelatedCoursesProps) {
                       <span className="font-body">{course.duration}</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4 text-prolab-violet" />
-                      <span className="font-body">{course.students}</span>
+                      <Users className="w-4 h-4" />
+                      <span className="font-body">{course.students || "Online"}</span>
                     </div>
                   </div>
-                  
-                  
                 </div>
                 
-                <Link href={`/cursos/${course.slug}`}>
+                <Link href={`/cursos/${course.slug.current}`} className="flex-1">
                   <Button className="w-full bg-prolab-violet hover:bg-prolab-violet/80 text-white font-body font-semibold">Ver Curso</Button>
                 </Link>
               </div>

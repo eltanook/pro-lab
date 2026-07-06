@@ -22,6 +22,9 @@ export default function WhatsAppFloat() {
   }
 
   if (!isVisible) return null
+  
+  // Ocultar si estamos dentro del iframe de Sanity Studio (Presentation tool)
+  if (typeof window !== "undefined" && window.self !== window.top) return null
 
   return (
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">

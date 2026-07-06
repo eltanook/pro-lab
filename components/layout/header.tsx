@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
+import type { SanitySiteSettings } from "@/lib/sanity-queries"
 
-export default function Header() {
+export default function Header({ settings }: { settings?: SanitySiteSettings | null }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
@@ -76,6 +77,20 @@ export default function Header() {
               Cursos
             </Link>
             <Link
+              href="/sedes"
+              className={`font-body transition-colors ${
+                isActive("/sedes")
+                  ? isScrolled
+                    ? "text-prolab-violet dark:text-white font-semibold border-b-2 border-prolab-pink pb-1"
+                    : "text-white font-semibold border-b-2 border-prolab-pink pb-1"
+                  : isScrolled
+                    ? "text-gray-700 dark:text-gray-300 hover:text-prolab-violet dark:hover:text-white"
+                    : "text-white/90 hover:text-white"
+              }`}
+            >
+              Sedes
+            </Link>
+            <Link
               href="/contacto"
               className={`font-body transition-colors ${
                 isActive("/contacto")
@@ -92,9 +107,9 @@ export default function Header() {
             <ThemeToggle isScrolled={isScrolled} />
             <Button
               className="bg-prolab-violet hover:bg-prolab-violet/80 text-white font-body font-semibold"
-              onClick={() => window.open("https://prolabaulavirtual.com/autogestion/", "_blank")}
+              onClick={() => window.open(settings?.header?.campusUrl || "https://prolabaulavirtual.com/autogestion/", "_blank")}
             >
-              Campus Virtual
+              {settings?.header?.campusButtonText || "Campus Virtual"}
             </Button>
           </nav>
 
@@ -137,6 +152,17 @@ export default function Header() {
                 Cursos
               </Link>
               <Link
+                href="/sedes"
+                className={`block px-4 py-3 rounded-lg text-base font-medium font-body transition-colors ${
+                  isActive("/sedes")
+                    ? "text-prolab-violet dark:text-white bg-gray-50 dark:bg-gray-800"
+                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                Sedes
+              </Link>
+              <Link
                 href="/contacto"
                 className={`block px-4 py-3 rounded-lg text-base font-medium font-body transition-colors ${
                   isActive("/contacto")
@@ -154,11 +180,11 @@ export default function Header() {
               <Button
                 className="w-full mt-4 bg-prolab-violet hover:bg-prolab-violet/80 text-white py-3 text-base font-body font-semibold"
                 onClick={() => {
-                                      window.open("https://prolabaulavirtual.com/autogestion/", "_blank")
+                  window.open(settings?.header?.campusUrl || "https://prolabaulavirtual.com/autogestion/", "_blank")
                   setIsOpen(false)
                 }}
               >
-                Campus Virtual
+                {settings?.header?.campusButtonText || "Campus Virtual"}
               </Button>
             </div>
           </div>
