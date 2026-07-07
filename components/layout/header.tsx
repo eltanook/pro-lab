@@ -36,15 +36,20 @@ export default function Header({ settings }: { settings?: SanitySiteSettings | n
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/logo2.png"
+              src="/logo1.png"
               alt="Pro-Lab Educativa"
               width={180}
               height={40}
               className="h-8 w-auto"
               priority
             />
+            <span className={`font-bold text-xl transition-colors hidden sm:block ${
+              isScrolled ? "text-gray-900 dark:text-white" : "text-white"
+            }`}>
+              Pro-Lab Educativa
+            </span>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
