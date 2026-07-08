@@ -1,11 +1,15 @@
 "use client"
 
-import { CheckCircle } from "lucide-react"
+import { useState } from "react"
+import { CheckCircle, PlayCircle, X } from "lucide-react"
 import FadeIn from "@/components/ui/fade-in"
 import type { SanitySiteSettings } from "@/lib/sanity-queries"
 import { urlForImage } from "@/sanity/lib/image"
+import { Dialog, DialogContent, DialogTitle, DialogClose } from "@/components/ui/dialog"
 
 export default function About({ settings }: { settings?: SanitySiteSettings | null }) {
+  const [videoModalOpen, setVideoModalOpen] = useState(false)
+  const videoUrl = settings?.about?.video?.url || "/material/video2.MP4";
   return (
     <section id="about-section" className="relative py-16 sm:py-20 bg-white dark:bg-gray-900 z-10">
       <div className="container mx-auto px-4">
@@ -51,19 +55,55 @@ export default function About({ settings }: { settings?: SanitySiteSettings | nu
           {/* Right Image */}
           <FadeIn direction="left" delay={0.2}>
             <div className="relative">
-              <div className="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden">
+              <div 
+                className="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden cursor-pointer group"
+                onClick={() => setVideoModalOpen(true)}
+                role="button"
+                aria-label="Reproducir video institucional"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === 'Enter' && setVideoModalOpen(true)}
+              >
                 <img
                   src={settings?.about?.image ? urlForImage(settings.about.image).url() : "/5.jpg"}
-                  alt={settings?.about?.title || "Pro-Lab Educativa - Biblioteca"}
-                  className="w-full h-96 sm:h-[26rem] object-cover"
+                  alt={settings?.about?.title ? `Imagen de ${settings.about.title}` : "Estudiantes en Pro-Lab Educativa"}
+                  className="w-full h-96 sm:h-[26rem] md:h-[32rem] object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
                 />
-                {/* Overlay for better text contrast */}
-                <div className="absolute inset-0 bg-prolab-black/20"></div>
+                {/* Overlay for better text contrast & dimming on hover */}
+                <div className="absolute inset-0 bg-prolab-black/30 group-hover:bg-prolab-black/40 transition-colors duration-300"></div>
+                {/* Play Button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <PlayCircle className="w-16 h-16 sm:w-20 sm:h-20 text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 drop-shadow-xl" aria-hidden="true" />
+                </div>
               </div>
             </div>
           </FadeIn>
         </div>
       </div>
+
+      {/* Modal para ver el Video */}
+      <Dialog open={videoModalOpen} onOpenChange={setVideoModalOpen}>
+        <DialogContent className="max-w-4xl w-[95vw] p-0 bg-black border-none overflow-hidden sm:rounded-xl">
+          <DialogTitle className="sr-only">Video Institucional</DialogTitle>
+          <div className="relative w-full aspect-video flex items-center justify-center bg-black group/video">
+            {videoModalOpen && (
+              <video 
+                src={videoUrl} 
+                controls 
+                autoPlay 
+                className="w-full h-full object-contain"
+                aria-label="Reproductor de video institucional"
+              >
+                Tu navegador no soporta el formato de video.
+              </video>
+            )}
+            <DialogClose className="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors opacity-100 focus:outline-none focus:ring-2 focus:ring-white">
+              <X className="w-6 h-6" />
+              <span className="sr-only">Cerrar video</span>
+            </DialogClose>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   )
 }

@@ -44,6 +44,7 @@ export const siteSettingsType = defineType({
           of: [{ type: 'string' }] 
         }),
         defineField({ name: 'image', title: 'Imagen', type: 'image', options: { hotspot: true } }),
+        defineField({ name: 'video', title: 'Video Presentación', type: 'file', options: { accept: 'video/*' }, description: 'Video para la sección Quiénes Somos (opcional)' }),
       ],
     }),
 
@@ -64,7 +65,18 @@ export const siteSettingsType = defineType({
           of: [{ type: 'string' }] 
         }),
         defineField({ name: 'buttonText', title: 'Texto del Botón', type: 'string' }),
-        defineField({ name: 'image', title: 'Muestra de Certificado', type: 'image', options: { hotspot: true } }),
+        defineField({
+          name: 'gallery',
+          title: 'Galería de Certificados (Carrusel)',
+          type: 'array',
+          of: [
+            { type: 'image', options: { hotspot: true }, title: 'Imagen' },
+            { type: 'file', title: 'Archivo PDF' }
+          ],
+          description: 'Agrega las imágenes o PDFs de los certificados. Se mostrarán en un carrusel.'
+        }),
+        defineField({ name: 'image', title: 'Muestra de Certificado (Antiguo - Usar Galería)', type: 'image', options: { hotspot: true } }),
+        defineField({ name: 'video', title: 'Video Certificaciones', type: 'file', options: { accept: 'video/*' }, description: 'Video para la sección Certificaciones (opcional)' }),
       ],
     }),
 

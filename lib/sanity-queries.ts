@@ -155,6 +155,7 @@ export interface SanitySiteSettings {
     description: string
     features: string[]
     image: any
+    video?: { url: string }
   }
   certifications: {
     subtitle: string
@@ -163,6 +164,12 @@ export interface SanitySiteSettings {
     list: string[]
     buttonText: string
     image: any
+    gallery?: {
+      _type: string
+      url?: string
+      asset?: any
+    }[]
+    video?: { url: string }
   }
   contact: {
     email: string
@@ -222,6 +229,20 @@ export interface SanitySiteSettings {
 
 export async function getSiteSettings(): Promise<SanitySiteSettings | null> {
   return client.fetch(
-    groq`*[_type == "siteSettings"][0]`
+    groq`*[_type == "siteSettings"][0]{
+      ...,
+      about {
+        ...,
+        video { ..., "url": asset->url }
+      },
+      certifications {
+        ...,
+        gallery[]{
+          ...,
+          "url": asset->url
+        },
+        video { ..., "url": asset->url }
+      }
+    }`
   )
 }
